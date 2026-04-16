@@ -75,9 +75,11 @@ const Header = () => {
       <nav className={`bg-white py-4 flex justify-center items-center sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md border-b border-gray-100 py-3' : 'border-b border-gray-100'}`}>
         <div className="max-w-7xl mx-auto w-full px-6 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3 group" title="На главную - Электрик Манас Алматы">
-            <div className="w-11 h-11 bg-gradient-to-br from-[#DC2626] to-[#E11D48] rounded-xl flex items-center justify-center text-white shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform duration-300">
-              <Zap size={24} className="fill-white" />
-            </div>
+            <img
+              src="/logo.png"
+              alt="Мастер Манас — Электрик Алматы"
+              className="h-12 w-12 rounded-full object-cover shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform duration-300"
+            />
             <div>
               <h1 className="text-xl font-extrabold leading-none text-[#DC2626] tracking-tight">Электрик Алматы</h1>
               <p className="text-xs text-gray-500 font-medium tracking-wide">Мастер Манас</p>
@@ -179,9 +181,11 @@ const Header = () => {
           {/* Header of mobile menu */}
           <div className="bg-[#DC2626] p-3 flex items-center gap-3">
             <Link to="/" className="bg-white rounded-2xl p-2 px-3 flex items-center gap-3 flex-1" onClick={() => setIsMenuOpen(false)}>
-              <div className="w-9 h-9 bg-[#DC2626] rounded-full flex items-center justify-center text-white">
-                <Zap size={18} className="fill-white" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="Мастер Манас"
+                className="w-9 h-9 rounded-full object-cover"
+              />
               <div>
                 <h1 className="text-[15px] font-extrabold leading-none text-[#DC2626] tracking-tight">Электрик Алматы</h1>
                 <p className="text-[10px] text-gray-500 font-medium">Мастер Манас</p>
