@@ -78,7 +78,7 @@ const Header = () => {
             <img
               src="/logo.png"
               alt="Мастер Манас — Электрик Алматы"
-              className="h-12 w-12 rounded-full object-cover shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform duration-300"
+              className="h-20 w-20 rounded-full object-cover shadow-lg shadow-red-500/30 group-hover:scale-105 transition-transform duration-300"
             />
             <div>
               <h1 className="text-xl font-extrabold leading-none text-[#DC2626] tracking-tight">Электрик Алматы</h1>
@@ -184,7 +184,7 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="Мастер Манас"
-                className="w-9 h-9 rounded-full object-cover"
+                className="w-16 h-16 rounded-full object-cover"
               />
               <div>
                 <h1 className="text-[15px] font-extrabold leading-none text-[#DC2626] tracking-tight">Электрик Алматы</h1>
