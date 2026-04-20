@@ -39,13 +39,37 @@ const generateSitemap = () => {
   </url>\n`;
   });
 
-  // Add Service landing pages
-  seoData.services.forEach(service => {
+  // Add Static pages
+  const staticPages = [
+    { path: '/services', priority: '0.9', freq: 'weekly' },
+    { path: '/prices', priority: '0.8', freq: 'weekly' },
+    { path: '/blog', priority: '0.8', freq: 'weekly' },
+    { path: '/about', priority: '0.7', freq: 'monthly' },
+    { path: '/portfolio', priority: '0.7', freq: 'monthly' },
+    { path: '/reviews', priority: '0.7', freq: 'monthly' },
+    { path: '/contacts', priority: '0.7', freq: 'monthly' },
+  ];
+  staticPages.forEach(page => {
     xml += `  <url>
-    <loc>${BASE_URL}/${service.id}-almaty</loc>
+    <loc>${BASE_URL}${page.path}</loc>
     <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>${page.freq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>\n`;
+  });
+
+  // Add Blog posts
+  const blogPosts = [
+    'safety', 'lighting', 'wiring', 'shield',
+    'appliances', 'smarthome', 'floorheating',
+    'ups', 'automation', 'landscape', 'emergency', 'ev'
+  ];
+  blogPosts.forEach(slug => {
+    xml += `  <url>
+    <loc>${BASE_URL}/blog/${slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>\n`;
   });
 
@@ -55,7 +79,8 @@ const generateSitemap = () => {
   if (fs.existsSync('./dist')) {
     fs.writeFileSync('./dist/sitemap.xml', xml);
   }
-  console.log('✅ Sitemap generated successfully with', seoData.services.length * seoData.districts.length + 1, 'URLs');
+  const total = 1 + seoData.services.length * seoData.districts.length + seoData.districts.length + seoData.services.length + staticPages.length + blogPosts.length;
+  console.log('✅ Sitemap generated successfully with', total, 'URLs');
 };
 
 generateSitemap();
