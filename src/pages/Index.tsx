@@ -69,11 +69,6 @@ const Index = () => {
             "opens": "00:00",
             "closes": "23:59"
           },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127"
-          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Услуги электрика",
@@ -123,7 +118,7 @@ const Index = () => {
               { value: "1000+", label: "клиентов" },
               { value: "10 лет", label: "на рынке" },
               { value: "24/7", label: "работаем" },
-              { value: "4.9/5", label: "рейтинг" },
+              { value: "127", label: "отзывов" },
             ].map((stat) => (
               <div key={stat.label} className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center text-white">
                 <div className="text-3xl font-extrabold mb-1">{stat.value}</div>
@@ -256,7 +251,7 @@ const Index = () => {
                   </div>
                   <div>
                     <div className="text-[22px] font-extrabold text-slate-900 leading-none mb-1">№1</div>
-                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wide">В рейтинге Алматы</div>
+                    <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wide">Выбор клиентов Алматы</div>
                   </div>
                 </div>
               </div>
