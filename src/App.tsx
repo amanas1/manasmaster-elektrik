@@ -12,6 +12,11 @@ import BlogPostShield from "./pages/BlogPostShield";
 import BlogPostAppliances from "./pages/BlogPostAppliances";
 import BlogPostSmartHome from "./pages/BlogPostSmartHome";
 import BlogPostFloorHeating from "./pages/BlogPostFloorHeating";
+import BlogPostUps from "./pages/BlogPostUps";
+import BlogPostAutomation from "./pages/BlogPostAutomation";
+import BlogPostLandscape from "./pages/BlogPostLandscape";
+import BlogPostEmergency from "./pages/BlogPostEmergency";
+import BlogPostEv from "./pages/BlogPostEv";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Portfolio from "./pages/Portfolio";
 import Reviews from "./pages/Reviews";
@@ -50,6 +55,11 @@ function App() {
           <Route path="/blog/appliances" element={<BlogPostAppliances />} />
           <Route path="/blog/smarthome" element={<BlogPostSmartHome />} />
           <Route path="/blog/floorheating" element={<BlogPostFloorHeating />} />
+          <Route path="/blog/ups" element={<BlogPostUps />} />
+          <Route path="/blog/automation" element={<BlogPostAutomation />} />
+          <Route path="/blog/landscape" element={<BlogPostLandscape />} />
+          <Route path="/blog/emergency" element={<BlogPostEmergency />} />
+          <Route path="/blog/ev" element={<BlogPostEv />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/reviews" element={<Reviews />} />
