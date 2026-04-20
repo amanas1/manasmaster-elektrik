@@ -19,9 +19,10 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Use the primary number for call, or let user choose if multiple buttons were there.
-    // Given the form context, we'll keep the primary for direct redirection or use a different logic.
-    window.location.href = `tel:+77055535332`;
+    const msg = encodeURIComponent(
+      `Заявка с сайта!\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nУслуга: ${formData.service}${formData.message ? `\nСообщение: ${formData.message}` : ""}`
+    );
+    window.open(`https://wa.me/77055535332?text=${msg}`, "_blank");
   };
 
   return (
@@ -108,9 +109,9 @@ const Index = () => {
               Профессиональные электромонтажные работы с гарантией до 12 месяцев. Выезд во все районы Алматы.
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <button className="bg-gradient-to-r from-[#DC2626] to-[#E11D48] text-white px-10 py-5 rounded-[1.5rem] font-bold text-lg shadow-xl shadow-red-500/30 hover:shadow-2xl hover:shadow-red-500/40 hover:-translate-y-1 active:scale-95 transition-all duration-300 btn-floating">
+              <a href="tel:+77055535332" className="bg-gradient-to-r from-[#DC2626] to-[#E11D48] text-white px-10 py-5 rounded-[1.5rem] font-bold text-lg shadow-xl shadow-red-500/30 hover:shadow-2xl hover:shadow-red-500/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
             Вызвать мастера
-          </button>
+          </a>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold px-6 py-4 rounded-xl flex items-center gap-3">
                 <span className="flex h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse"></span>
                 Выезд и диагностика БЕСПЛАТНО!
@@ -143,7 +144,7 @@ const Index = () => {
             {seoData.services.slice(0, 8).map((service, index) => (
               <Link
                 key={service.id}
-                to={`/uslugi/${service.id}/medeuskij`}
+                to={`/uslugi/${service.id}/almalinskij`}
                 className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group"
               >
                 <div className="h-48 overflow-hidden relative">
@@ -373,6 +374,53 @@ const Index = () => {
           </div>
         </div>
       </section>
+      {/* FAQ Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Часто задаваемые вопросы</h2>
+            <p className="text-slate-500 mt-3 text-lg">Ответы на самые популярные вопросы наших клиентов</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              { q: "Сколько стоит вызов электрика в Алматы?", a: "Стоимость вызова электрика начинается от 3 500 ₸. Выезд и диагностика — бесплатно при заказе работ. Точная цена озвучивается до начала работ после осмотра." },
+              { q: "Как быстро приедет мастер?", a: "Мастер приедет в любой район Алматы в течение 30–40 минут после звонка. Работаем круглосуточно, 7 дней в неделю, без выходных и праздников." },
+              { q: "Даёте ли гарантию на электромонтажные работы?", a: "Да, мы предоставляем официальную письменную гарантию до 12 месяцев на все виды выполненных электромонтажных работ." },
+              { q: "Какие районы Алматы вы обслуживаете?", a: "Обслуживаем все 8 районов: Алатауский, Алмалинский, Ауэзовский, Бостандыкский, Жетысуский, Медеуский, Наурызбайский и Турксибский." },
+              { q: "Можно ли вызвать электрика ночью?", a: "Да! Работаем 24/7, включая ночные часы и праздники. Аварийный выезд — в течение 30 минут. Дополнительная наценка за ночное время не взимается." },
+              { q: "Какие материалы вы используете?", a: "Только сертифицированные кабели и комплектующие от проверенных производителей: ABB, Schneider Electric, Legrand, IEK. На материалы предоставляем гарантию производителя." },
+              { q: "Подключаете ли электроплиты и бойлеры?", a: "Да, подключаем все виды мощной бытовой техники: электроплиты, духовые шкафы, бойлеры, кондиционеры. При необходимости прокладываем отдельную силовую линию." },
+              { q: "Выписываете ли вы чек или договор?", a: "Да, по желанию клиента предоставляем договор на выполнение работ и кассовый чек. Работаем официально, с гарантийным талоном." },
+              { q: "Нужно ли убирать после работы самому?", a: "Нет. После завершения все работ мастер самостоятельно убирает строительный мусор и пыль. Мы оставляем квартиру в чистоте." },
+              { q: "Можно ли вызвать электрика на дачу или в частный дом?", a: "Да, выезжаем не только по Алматы, но и в пригород: Алатау, Каскелен, Талгар, Есик. Стоимость выезда за город уточняется индивидуально." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-7">
+                <h3 className="font-bold text-slate-900 text-[16px] mb-3 flex items-start gap-3">
+                  <span className="flex-shrink-0 w-7 h-7 bg-red-50 text-[#DC2626] rounded-full flex items-center justify-center text-sm font-extrabold">{i + 1}</span>
+                  {item.q}
+                </h3>
+                <p className="text-slate-600 text-[14px] leading-relaxed pl-10">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Text Block */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto prose prose-slate">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6">Электрик в Алматы — профессиональные услуги с гарантией</h2>
+            <div className="space-y-4 text-[15px] text-slate-600 leading-relaxed">
+              <p>Компания «Мастер Манас» оказывает профессиональные <strong>услуги электрика в Алматы</strong> с 2015 года. За 10 лет работы мы выполнили более 1000 объектов — от замены одной розетки до полного электромонтажа в крупных коттеджах. Если вам нужно <strong>вызвать электрика</strong> срочно — мастер приедет к вам за 30–40 минут в любой район города.</p>
+              <p>Мы специализируемся на <strong>электромонтажных работах</strong> любой сложности: замена и прокладка новой проводки, установка люстр и светильников, сборка и замена электрощитов, монтаж систем тёплого пола, подключение бытовой техники. Каждая работа выполняется строго по нормам ПУЭ с применением профессионального инструмента и качественных материалов.</p>
+              <p>В отличие от частных мастеров без опыта, мы даём <strong>письменную гарантию до 12 месяцев</strong> на все виды выполненных работ. Наши электрики имеют группы допуска по электробезопасности и постоянно повышают квалификацию. Выезд и диагностика — <strong>бесплатно</strong> при заказе работ.</p>
+              <p><strong>Услуги электрика в Алматы</strong> от «Мастер Манас» — это прозрачное ценообразование без скрытых платежей, аккуратность в работе и уважение к вашему дому. Звоните 24/7: <a href="tel:+77055535332" className="text-[#DC2626] font-bold">+7 705 553-53-32</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Map Section */}
       <section className="h-[400px] w-full relative">
         <iframe 
@@ -382,7 +430,7 @@ const Index = () => {
           frameBorder="0" 
           allowFullScreen={true}
           className="absolute inset-0 grayscale contrast-125 opacity-90 sepia-[.2]"
-          title="Карта обслуживания Алматы"
+          title="Карта обслуживания электрика в Алматы"
         ></iframe>
       </section>
       

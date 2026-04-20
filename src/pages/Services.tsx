@@ -14,7 +14,9 @@ const Services = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <SEO 
         title="Все услуги электрика в Алматы | Мастер Манас"
-        description="Полный перечень услуг электрика в Алматы. От замены розеток до полной замены проводки. Профессионально, с гарантией, недорого."
+        description="Полный перечень электромонтажных услуг электрика в Алматы: замена проводки, установка люстр, сборка щитов. Профессионально, с гарантией, недорого. Выезд 24/7."
+        keywords="услуги электрика Алматы, электромонтажные работы Алматы, вызов электрика, замена проводки, установка люстр, сборка электрощита"
+        canonical="https://manasmaster.kz/services"
       />
       
       {/* Hero Section */}
@@ -47,7 +49,6 @@ const Services = () => {
             {filteredServices.map((service, index) => (
               <div key={service.id} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all group flex flex-col">
                 <div className="h-48 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-red-500/10 group-hover:bg-red-500/0 transition-colors z-10"></div>
                   <img 
                     src={service.image} 
                     alt={service.alt} 
@@ -59,9 +60,6 @@ const Services = () => {
                       Популярно
                     </div>
                   )}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-bold text-[#DC2626] z-20 shadow-sm">
-                    {service.price}
-                  </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
