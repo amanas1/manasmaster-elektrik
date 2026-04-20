@@ -1,14 +1,24 @@
 import SEO from "../components/SEO";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import seoData from "../data/seo-data.json";
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap, MapPin, X } from "lucide-react";
 
 const Services = () => {
-  // All services are now electrician only
-
-
+  const navigate = useNavigate();
+  const [selectedService, setSelectedService] = useState<string | null>(null);
   const filteredServices = seoData.services;
+
+  const handleOrderClick = (serviceId: string) => {
+    setSelectedService(serviceId);
+  };
+
+  const handleDistrictSelect = (districtId: string) => {
+    if (selectedService) {
+      navigate(`/uslugi/${selectedService}/${districtId}`);
+      setSelectedService(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -18,7 +28,59 @@ const Services = () => {
         keywords="услуги электрика Алматы, электромонтажные работы Алматы, вызов электрика, замена проводки, установка люстр, сборка электрощита"
         canonical="https://manasmaster.kz/services"
       />
-      
+
+      {/* District Selection Modal */}
+      {selectedService && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedService(null)}
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+          <div
+            className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedService(null)}
+              className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            >
+              <X size={18} className="text-gray-600" />
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <MapPin size={28} className="text-[#DC2626]" />
+              </div>
+              <h3 className="text-xl font-extrabold text-gray-900 mb-1">
+                Выберите ваш район
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Мастер приедет в течение 30–40 минут
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {seoData.districts.map((district) => (
+                <button
+                  key={district.id}
+                  onClick={() => handleDistrictSelect(district.id)}
+                  className="flex items-center gap-2 p-3 rounded-xl border-2 border-gray-100 hover:border-[#DC2626] hover:bg-red-50 text-left transition-all group"
+                >
+                  <MapPin size={16} className="text-gray-400 group-hover:text-[#DC2626] shrink-0 transition-colors" />
+                  <span className="font-semibold text-sm text-gray-800 group-hover:text-[#DC2626] transition-colors">
+                    {district.name}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <p className="text-center text-xs text-gray-400 mt-5">
+              Выезд и диагностика — <span className="font-bold text-[#DC2626]">бесплатно</span> при заказе работ
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="bg-[#DC2626] text-white py-16 relative">
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -42,8 +104,6 @@ const Services = () => {
               Выберите интересующую вас услугу, чтобы узнать подробности. Мы регулярно обновляем оборудование и используем современные технологии.
             </p>
           </div>
-
-
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {filteredServices.map((service, index) => (
@@ -74,15 +134,16 @@ const Services = () => {
                           {service.price}
                         </span>
                         <div className="flex items-center gap-1 text-xs text-gray-500 mt-1">
-                          <span className="flex items-center gap-1">⏱️ {service.time}</span>
+                          <span>⏱️ {service.time}</span>
                         </div>
                       </div>
-                      <Link 
-                        to={`/uslugi/${service.id}/almalinskij`} 
-                        className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-colors shadow-md text-center"
+                      <button
+                        onClick={() => handleOrderClick(service.id)}
+                        className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-colors shadow-md flex items-center gap-1.5"
                       >
+                        <MapPin size={14} />
                         Заказать
-                      </Link>
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-2 text-xs font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg w-fit">
@@ -99,35 +160,22 @@ const Services = () => {
           <div className="mt-20 max-w-4xl mx-auto bg-gradient-to-br from-[#DC2626] to-[#991B1B] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-            
             <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Нужна срочная помощь мастера?</h2>
             <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto relative z-10">
               Напишите нам в WhatsApp или позвоните. Дежурный мастер готов выехать к вам через 5 минут после звонка.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-              <a 
-                href="tel:+77055535332"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1"
-              >
+              <a href="tel:+77055535332" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1">
                 +7 (705) 553-53-32
               </a>
-              <a 
-                href="tel:+77074791020"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1"
-              >
+              <a href="tel:+77074791020" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1">
                 +7 (707) 479-10-20
               </a>
-              <a 
-                href="https://wa.me/77055535332"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-green-500 hover:bg-green-600 shadow-lg transition-all hover:scale-105"
-              >
+              <a href="https://wa.me/77055535332" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-green-500 hover:bg-green-600 shadow-lg transition-all hover:scale-105">
                 Написать в WhatsApp
               </a>
             </div>
           </div>
-
         </div>
       </section>
     </div>
