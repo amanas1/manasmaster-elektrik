@@ -452,17 +452,88 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SEO Text Block */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto prose prose-slate">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-6">Электрик в Алматы — профессиональные услуги с гарантией</h2>
-            <div className="space-y-4 text-[15px] text-slate-600 leading-relaxed">
-              <p>Компания «Мастер Манас» оказывает профессиональные <strong>услуги электрика в Алматы</strong> с 2015 года. За 10 лет работы мы выполнили более 1000 объектов — от замены одной розетки до полного электромонтажа в крупных коттеджах. Если вам нужно <strong>вызвать электрика</strong> срочно — мастер приедет к вам за 30–40 минут в любой район города.</p>
-              <p>Мы специализируемся на <strong>электромонтажных работах</strong> любой сложности: замена и прокладка новой проводки, установка люстр и светильников, сборка и замена электрощитов, монтаж систем тёплого пола, подключение бытовой техники. Каждая работа выполняется строго по нормам ПУЭ с применением профессионального инструмента и качественных материалов.</p>
-              <p>В отличие от частных мастеров без опыта, мы даём <strong>письменную гарантию до 12 месяцев</strong> на все виды выполненных работ. Наши электрики имеют группы допуска по электробезопасности и постоянно повышают квалификацию. Выезд и диагностика — <strong>бесплатно</strong> при заказе работ.</p>
-              <p><strong>Услуги электрика в Алматы</strong> от «Мастер Манас» — это прозрачное ценообразование без скрытых платежей, аккуратность в работе и уважение к вашему дому. Звоните 24/7: <a href="tel:+77055535332" className="text-[#DC2626] font-bold">+7 705 553-53-32</a>.</p>
+      {/* SEO Text Block — expanded */}
+      <section className="py-16 bg-white border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-6">
+
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3 text-center">
+            Электрик в Алматы — вызов мастера 24/7 | Мастер Манас
+          </h2>
+          <p className="text-center text-slate-500 text-[15px] mb-10 max-w-2xl mx-auto">
+            Профессиональные электромонтажные работы с гарантией 12 месяцев. Работаем по всем районам Алматы.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-[14px] text-slate-600 leading-relaxed">
+
+            {/* Left column — services */}
+            <div className="space-y-4">
+              <h3 className="text-[17px] font-bold text-slate-900">Электромонтажные работы в Алматы</h3>
+              <p>
+                Если вам нужно <strong>вызвать электрика в Алматы</strong> срочно — мастер приедет за 30–40 минут в любой район.
+                Компания «Мастер Манас» выполняет полный спектр <strong>электромонтажных работ</strong>: от замены розетки и
+                установки люстры до монтажа новой проводки под ключ и сборки электрощита.
+              </p>
+              <p>
+                Наши <strong>услуги электрика в Алматы</strong> включают подключение мощной бытовой техники (электроплиты, бойлеры,
+                кондиционеры), монтаж тёплых полов, установку зарядных станций для электромобилей и систем аварийного освещения.
+                Все работы выполняются по нормам ПУЭ с официальной гарантией до 12 месяцев.
+              </p>
+              <p>
+                Мы работаем с 2015 года и выполнили более <strong>1 000 объектов</strong> — квартиры, частные дома, офисы и
+                коммерческие помещения. <strong>Выезд и диагностика — бесплатно</strong> при заказе работ.
+              </p>
+              <h3 className="text-[16px] font-bold text-slate-900 pt-2">Популярные услуги электрика</h3>
+              <ul className="space-y-1.5">
+                {[
+                  { label: "Вызов электрика на дом в Алматы", to: "/uslugi/vyzov-elektrika/medeuski" },
+                  { label: "Замена и ремонт электропроводки", to: "/uslugi/zamena-provodki/bostandykski" },
+                  { label: "Установка люстр и светильников", to: "/uslugi/ustanovka-lyustr/almalinskij" },
+                  { label: "Монтаж и замена электрощита", to: "/uslugi/sborka-schitov/auezovskyj" },
+                  { label: "Установка розеток и выключателей", to: "/uslugi/rozetki-vyklyuchateli/zhetysuski" },
+                  { label: "Подключение бытовой техники", to: "/uslugi/podkluchenie-tehniki/bostandykski" },
+                ].map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to} className="text-[#DC2626] hover:underline font-medium">→ {item.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {/* Right column — districts */}
+            <div className="space-y-4">
+              <h3 className="text-[17px] font-bold text-slate-900">Электрик по районам Алматы</h3>
+              <p>
+                Наши мастера работают во всех 8 районах Алматы без исключения.
+                <strong> Электрик в Медеуском районе</strong>, <strong>Бостандыкском</strong>, <strong>Алмалинском</strong> и других —
+                приедет к вам за 30–45 минут после звонка. Мы знаем особенности застройки каждого района:
+                от старых хрущёвок в центре с алюминиевой проводкой до новостроек в Наурызбайском и частного
+                сектора в Алатауском.
+              </p>
+              <p>
+                Независимо от района, вы получаете одинаково высокое качество: опытный мастер-<strong>электрик</strong>,
+                качественные материалы, честный прайс и гарантия на работу. Позвоните нам:{" "}
+                <a href="tel:+77055535332" className="text-[#DC2626] font-bold">+7 (705) 553-53-32</a>{" или "}
+                <a href="tel:+77074791020" className="text-[#DC2626] font-bold">+7 (707) 479-10-20</a>.
+              </p>
+              <h3 className="text-[16px] font-bold text-slate-900 pt-2">Выбрать район</h3>
+              <ul className="grid grid-cols-2 gap-1.5">
+                {[
+                  { label: "Медеуский район", to: "/uslugi/vyzov-elektrika/medeuski" },
+                  { label: "Бостандыкский", to: "/uslugi/vyzov-elektrika/bostandykski" },
+                  { label: "Алмалинский", to: "/uslugi/vyzov-elektrika/almalinskij" },
+                  { label: "Ауэзовский", to: "/uslugi/vyzov-elektrika/auezovskyj" },
+                  { label: "Жетысуский", to: "/uslugi/vyzov-elektrika/zhetysuski" },
+                  { label: "Алатауский", to: "/uslugi/vyzov-elektrika/alatauski" },
+                  { label: "Наурызбайский", to: "/uslugi/vyzov-elektrika/nauryzbaiski" },
+                  { label: "Турксибский", to: "/uslugi/vyzov-elektrika/turksibski" },
+                ].map((item) => (
+                  <li key={item.to}>
+                    <Link to={item.to} className="text-[#DC2626] hover:underline font-medium text-[13px]">→ {item.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
         </div>
       </section>
