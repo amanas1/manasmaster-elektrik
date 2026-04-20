@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Index = () => {
   const navigate = useNavigate();
+  const [selectedService, setSelectedService] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,6 +24,13 @@ const Index = () => {
       `Заявка с сайта!\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nУслуга: ${formData.service}${formData.message ? `\nСообщение: ${formData.message}` : ""}`
     );
     window.open(`https://wa.me/77055535332?text=${msg}`, "_blank");
+  };
+
+  const handleDistrictSelect = (districtId: string) => {
+    if (selectedService) {
+      navigate(`/uslugi/${selectedService}/${districtId}`);
+      setSelectedService(null);
+    }
   };
 
   return (
@@ -129,6 +137,49 @@ const Index = () => {
         </div>
       </section>
 
+      {/* District Selection Modal */}
+      {selectedService && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedService(null)}
+        >
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+          <div
+            className="relative bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedService(null)}
+              className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors text-gray-600 text-xl font-bold"
+            >
+              ✕
+            </button>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <MapPin size={28} className="text-[#DC2626]" />
+              </div>
+              <h3 className="text-xl font-extrabold text-gray-900 mb-1">Выберите ваш район</h3>
+              <p className="text-gray-500 text-sm">Мастер приедет в течение 30–40 минут</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {seoData.districts.map((district) => (
+                <button
+                  key={district.id}
+                  onClick={() => handleDistrictSelect(district.id)}
+                  className="flex items-center gap-2 p-3 rounded-xl border-2 border-gray-100 hover:border-[#DC2626] hover:bg-red-50 text-left transition-all group"
+                >
+                  <MapPin size={16} className="text-gray-400 group-hover:text-[#DC2626] shrink-0 transition-colors" />
+                  <span className="font-semibold text-sm text-gray-800 group-hover:text-[#DC2626] transition-colors">{district.name}</span>
+                </button>
+              ))}
+            </div>
+            <p className="text-center text-xs text-gray-400 mt-5">
+              Выезд и диагностика — <span className="font-bold text-[#DC2626]">бесплатно</span> при заказе работ
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Services Section */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -137,10 +188,10 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {seoData.services.slice(0, 8).map((service, index) => (
-              <Link
+              <div
                 key={service.id}
-                to={`/uslugi/${service.id}/almalinskij`}
-                className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group"
+                onClick={() => setSelectedService(service.id)}
+                className="bg-white rounded-[1.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col group cursor-pointer"
               >
                 <div className="h-48 overflow-hidden relative">
                   <img 
@@ -172,7 +223,7 @@ const Index = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <div className="text-center mt-12">
