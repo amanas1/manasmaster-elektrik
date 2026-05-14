@@ -89,7 +89,7 @@ const Footer = () => {
                       <div className="text-sm font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors">+7 (707) 479-10-20</div>
                     </div>
                   </a>
-                  <div className="text-xs text-gray-500 ml-11 mt-1">Круглосуточно, без выходных</div>
+                  <div className="text-xs text-gray-500 ml-11 mt-1">Звоните или пишите в WhatsApp</div>
                 </div>
               </li>
               <li>
@@ -99,7 +99,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-900 group-hover:text-[#25D366] transition-colors">Написать в WhatsApp</div>
-                    <div className="text-xs text-gray-500">Ответим за 5 минут</div>
+                    <div className="text-xs text-gray-500">Ответим, как только будем на связи</div>
                   </div>
                 </a>
               </li>
@@ -108,8 +108,8 @@ const Footer = () => {
                   <MapPin size={14} className="text-gray-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">г. Алматы</div>
-                  <div className="text-xs text-gray-500">мкр. Аксай 4-11</div>
+                  <div className="text-sm font-medium text-gray-900">Алматы и пригород</div>
+                  <div className="text-xs text-gray-500">Выезжаем на дом</div>
                 </div>
               </li>
             </ul>

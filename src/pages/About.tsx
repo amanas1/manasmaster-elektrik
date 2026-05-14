@@ -7,7 +7,7 @@ const About = () => {
     <div className="min-h-screen bg-white flex flex-col pt-24 md:pt-32 pb-20">
       <SEO 
         title="О компании | Электрик в Алматы — Мастер Манас"
-        description="Профессиональные электрики Алматы — Мастер Манас. Работаем с 2015 года, более 1000 клиентов, гарантия 12 месяцев. Узнайте больше о нашей команде."
+        description="Электрик в Алматы — Мастер Манас. Электромонтажные работы, ремонт проводки, установка розеток, света и сборка щита."
         keywords="электрик Алматы, о компании, Мастер Манас, электрики Алматы"
         canonical="https://manasmaster.kz/about"
       />
@@ -37,7 +37,7 @@ const About = () => {
                 </p>
                 <div className="my-8 rounded-[2rem] overflow-hidden shadow-lg aspect-video md:aspect-[16/9]">
                   <img 
-                src="/images/services/vyzov-elektrika.png" 
+                src="/images/master-manas-electrician.webp" 
                 alt="Мастер Манас за работой — профессиональный электрик в Алматы" 
                 title="Мастер Манас: Профессиональный электрик с 10-летним опытом"
                 className="w-full h-full object-cover rounded-2xl shadow-lg border border-gray-100"
@@ -60,18 +60,18 @@ const About = () => {
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <Calendar size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-3xl font-extrabold text-slate-900 block mb-1">10 лет</span>
-                <span className="text-[15px] text-slate-500 font-medium">на рынке</span>
+                <span className="text-3xl font-extrabold text-slate-900 block mb-1">15 лет</span>
+                <span className="text-[15px] text-slate-500 font-medium">опыта</span>
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <ShieldCheck size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Гарантия 1 год</span>
-                <span className="text-[15px] text-slate-500 font-medium">на работы</span>
+                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Гарантия на работу</span>
+                <span className="text-[15px] text-slate-500 font-medium">по виду услуги</span>
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <Star size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Доверяют 127 клиентов</span>
-                <span className="text-[15px] text-slate-500 font-medium">по отзывам</span>
+                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Выезд на дом</span>
+                <span className="text-[15px] text-slate-500 font-medium">Алматы и пригород</span>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Безопасность", desc: "Строгое соблюдение ПУЭ и всех норм безопасности." },
-              { title: "Качество материалов", desc: "Используем только сертифицированный кабель и надежную автоматику." },
+              { title: "Качество материалов", desc: "Подбираем кабель и автоматику под конкретную задачу и нагрузку." },
               { title: "Оперативность", desc: "Выезжаем для устранения аварийных ситуаций максимально быстро." },
               { title: "Прозрачность", desc: "Точная смета до начала работ без скрытых расходов." },
               { title: "Гарантия", desc: "Несем полную ответственность за выполненную работу в течение года." },
@@ -109,12 +109,12 @@ const About = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Сертификаты и допуски</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Подход к работе</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Допуск по ЭБ", desc: "Наличие всех необходимых групп допуска по электробезопасности." },
+              { title: "Безопасность", desc: "Перед подключением проверяем нагрузку, соединения и состояние линии." },
               { title: "ПУЭ Стандарты", desc: "Работа в строгом соответствии с Правилами Устройства Электроустановок." },
               { title: "Техника безопасности", desc: "Соблюдение правил ТБ при проведении высотных и монтажных работ." },
               { title: "Качественный инструмент", desc: "Использование профессионального измерительного оборудования и инструмента." },

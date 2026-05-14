@@ -27,8 +27,8 @@ seoData.services.forEach(service => {
   seoData.districts.forEach(district => {
     // Generate Metadata
     const serviceTitle = service.seoTitle || service.title;
-    const title = `${serviceTitle} в районе ${district.name} | Электрик Алматы 24/7`;
-    const description = `Срочный ${service.title.toLowerCase()} в ${district.name} районе Алматы. Выезд за 30-40 мин! Гарантия на электромонтажные работы до 12 месяцев. Звоните ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+    const title = `${serviceTitle} в районе ${district.name} | Электрик Алматы`;
+    const description = `${service.title} в ${district.name} районе Алматы. Выезд мастера на дом по согласованному времени. Звоните ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
     const keywords = `${service.title.toLowerCase()}, ${service.title.toLowerCase()} алматы, ${service.title.toLowerCase()} ${district.name} район, вызов электрика, услуги электрика, электромонтажные работы`;
     const url = `${BASE_URL}/uslugi/${service.id}/${district.id}`;
 
@@ -80,8 +80,8 @@ seoData.services.forEach(service => {
 // Generate District Landing Pages: /elektrik-:districtId-rayon
 seoData.districts.forEach(district => {
   const service = seoData.services.find(s => s.id === 'vyzov-elektrika'); // Use generic service
-  const title = `Электрик в ${district.name} районе Алматы | Вызов мастера 24/7`;
-  const description = `Профессиональный электрик в ${district.nameGenitive} районе Алматы. Срочный выезд за 30 минут, стаж 15 лет. Цены от 3500 тг. Звоните прямо сейчас!`;
+  const title = `Электрик в ${district.name} районе Алматы | Вызов мастера`;
+  const description = `Электрик в ${district.nameGenitive} районе Алматы. Выезд на дом, цены от 3500 тг. Звоните: +7 (705) 553-53-32.`;
   const url = `${BASE_URL}/elektrik-${district.id}-rayon`;
   
   let html = template
@@ -97,8 +97,8 @@ seoData.districts.forEach(district => {
 
 // Generate Service Landing Pages: /:serviceId-almaty
 seoData.services.forEach(service => {
-  const title = `${service.title} Алматы | Цены от ${service.price} | Выезд за 30 мин`;
-  const description = `${service.title} в Алматы круглосуточно. Качественный электромонтаж. Гарантия 12 месяцев. Профессиональные электрики. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const title = `${service.title} Алматы | Цены от ${service.price} | Мастер Манас`;
+  const description = `${service.title} в Алматы. Электромонтажные работы, выезд мастера на дом и понятная цена до начала работ. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
   const url = `${BASE_URL}/${service.id}-almaty`;
 
   let html = template

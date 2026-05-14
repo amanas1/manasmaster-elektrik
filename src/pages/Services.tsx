@@ -24,7 +24,7 @@ const Services = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <SEO 
         title="Все услуги электрика в Алматы | Мастер Манас"
-        description="Полный перечень электромонтажных услуг электрика в Алматы: замена проводки, установка люстр, сборка щитов. Профессионально, с гарантией, недорого. Выезд 24/7."
+        description="Полный перечень электромонтажных услуг электрика в Алматы: замена проводки, установка люстр, сборка щитов, розетки и подключение техники."
         keywords="услуги электрика Алматы, электромонтажные работы Алматы, вызов электрика, замена проводки, установка люстр, сборка электрощита"
         canonical="https://manasmaster.kz/services"
       />
@@ -55,7 +55,7 @@ const Services = () => {
                 Выберите ваш район
               </h3>
               <p className="text-gray-500 text-sm">
-                Мастер приедет в течение 30–40 минут
+                Согласуем район и удобное время выезда
               </p>
             </div>
 
@@ -75,7 +75,7 @@ const Services = () => {
             </div>
 
             <p className="text-center text-xs text-gray-400 mt-5">
-              Выезд и диагностика — <span className="font-bold text-[#DC2626]">бесплатно</span> при заказе работ
+              Выезд входит в стоимость при заказе работ
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Наши услуги</h1>
           <p className="text-xl text-red-100 max-w-3xl mx-auto">
-            Выполняем полный комплекс электромонтажных работ в Алматы любой сложности. Даем официальную гарантию на все виды работ.
+            Выполняем электромонтажные работы в Алматы: ремонт, установка и подключение.
           </p>
         </div>
       </section>
@@ -148,7 +148,7 @@ const Services = () => {
 
                     <div className="flex items-center gap-2 text-xs font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg w-fit">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 22-8-4.5v-9L12 4l8 4.5v9Z"/><path d="m9 12 2 2 4-4"/></svg>
-                      Гарантия 1 год
+                      Гарантия на работу
                     </div>
                   </div>
                 </div>
@@ -162,7 +162,7 @@ const Services = () => {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Нужна срочная помощь мастера?</h2>
             <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto relative z-10">
-              Напишите нам в WhatsApp или позвоните. Дежурный мастер готов выехать к вам через 5 минут после звонка.
+              Напишите нам в WhatsApp или позвоните. Мастер согласует район, задачу и удобное время выезда.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <a href="tel:+77055535332" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1">

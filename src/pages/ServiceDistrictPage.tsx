@@ -26,8 +26,9 @@ const ServiceDistrictPage = () => {
     );
   }
 
-  const title = `${service.title} в ${district.nameGenitive} Алматы | Мастер Манас`;
-  const description = `${service.title} в ${district.nameGenitive} Алматы — ${service.price}. Выезд мастера 24/7 за 30 минут. Гарантия 12 месяцев. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const locationText = district.id === "almaty" ? "Алматы" : `${district.nameGenitive} Алматы`;
+  const title = `${service.title} в ${locationText} | Мастер Манас`;
+  const description = `${service.title} в ${locationText} — ${service.price}. Выезд мастера на дом по согласованному времени. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
 
   // Get other services for cross-linking
   const otherServices = seoData.services.filter((s) => s.id !== serviceId).slice(0, 4);
@@ -57,7 +58,7 @@ const ServiceDistrictPage = () => {
           </nav>
 
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-            {service.title} в {district.nameGenitive} Алматы
+            {service.title} в {locationText}
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mb-6">
             {service.description}
@@ -67,7 +68,7 @@ const ServiceDistrictPage = () => {
               <Clock size={16} /> {service.time}
             </div>
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
-              <Shield size={16} /> Гарантия 12 мес.
+              <Shield size={16} /> Гарантия на работу
             </div>
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
               <MapPin size={16} /> {district.name}
@@ -90,11 +91,11 @@ const ServiceDistrictPage = () => {
               <h3 className="text-xl font-bold mb-4">Наши преимущества в {district.nameGenitive}:</h3>
               <ul className="space-y-3">
                 {[
-                  `Быстрый выезд 24/7 в ${district.name} — приедем за 30 минут`,
-                  "Гарантия на работы до 12 месяцев",
+                  `Выезд на дом в ${district.name} по согласованному времени`,
+                  "Гарантия зависит от вида выполненных работ",
                   "Честные цены без накруток и скрытых платежей",
-                  "Опытные мастера со стажем более 15 лет",
-                  "Бесплатная диагностика при заказе работ",
+                  "Практический опыт работы с домашней электрикой",
+                  "Осмотр и согласование цены до начала работ",
                   "Чистота после работы — убираем за собой",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -178,7 +179,7 @@ const ServiceDistrictPage = () => {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Shield size={18} className="text-[#4ADE80] shrink-0" />
-                  <span>Гарантия до 12 месяцев</span>
+                  <span>Гарантия на работу</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <MapPin size={18} className="text-amber-500 shrink-0" />

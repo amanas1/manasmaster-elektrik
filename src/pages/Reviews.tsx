@@ -1,13 +1,7 @@
 import SEO from "../components/SEO";
-import { Star, MessageCircle, CheckCircle2, Calendar, Zap } from "lucide-react";
-import { useState } from "react";
+import { MessageCircle, CheckCircle2, Calendar, Zap } from "lucide-react";
 
 const Reviews = () => {
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
-  
-  const ratingTexts = ["", "Ужасно 😠", "Плохо 😞", "Нормально 🙂", "Хорошо! 😁", "Отлично! 🤩"];
-
   const reviews = [
     {
       name: "Айгерим",
@@ -15,8 +9,8 @@ const Reviews = () => {
       color: "bg-red-500",
       date: "02 Марта 2025",
       service: "Ремонт проводки",
-      text: "Очень благодарна Манасу за быструю работу. Искрила розетка, было страшно. Мастер приехал через 30 минут, все проверил, заменил сгоревшие провода и розетку. Все сделал аккуратно и дал гарантию. Рекомендую!",
-      rating: 5
+      text: "Очень благодарна Манасу за быструю работу. Искрила розетка, было страшно. Мастер приехал по согласованному времени, все проверил, заменил сгоревшие провода и розетку. Все сделал аккуратно. Рекомендую!",
+      mood: "🤩"
     },
     {
       name: "Тимур",
@@ -25,7 +19,7 @@ const Reviews = () => {
       date: "25 Февраля 2025",
       service: "Сборка электрощита",
       text: "Постоянно выбивало автоматы. Вызвал Манаса, он приехал вовремя. Оказалось щиток был собран неправильно. Пересобрал все, поставил качественные автоматы Schneider. Теперь все отлично работает. Спасибо!",
-      rating: 5
+      mood: "😊"
     },
     {
       name: "Елена",
@@ -34,7 +28,7 @@ const Reviews = () => {
       date: "18 Февраля 2025",
       service: "Монтаж люстры",
       text: "Мастер повесил три люстры и бра после ремонта. Сделал все очень ровно, проверил все соединения. Мусор за собой убрал. Очень вежливый и пунктуальный специалист.",
-      rating: 5
+      mood: "😊"
     },
     {
       name: "Данияр",
@@ -43,7 +37,7 @@ const Reviews = () => {
       date: "10 Февраля 2025",
       service: "Поиск неисправности",
       text: "Пропал свет в половине квартиры. Манас приехал, прозвонил всю цепь за 20 минут нашел обрыв в распредкоробке. Сделал надежное соединение. Прямо спас нас! Огромное спасибо.",
-      rating: 5
+      mood: "🤩"
     },
     {
       name: "Асель",
@@ -52,7 +46,7 @@ const Reviews = () => {
       date: "05 Февраля 2025",
       service: "Подключение плиты",
       text: "Нужно было подключить новую электроплиту. Мастер провел отдельный кабель от щитка, поставил специальную розетку. Все работает как часы. Сервис на высшем уровне.",
-      rating: 5
+      mood: "😊"
     },
     {
       name: "Руслан",
@@ -61,7 +55,7 @@ const Reviews = () => {
       date: "28 Января 2025",
       service: "Электрика под ключ",
       text: "Делал ремонт с нуля. Манас полностью сделал электрику: штробление, прокладка кабеля, сборка щита. Сделано на совесть, по ГОСТу. Качество работы - топ.",
-      rating: 5
+      mood: "🤩"
     }
   ];
 
@@ -82,16 +76,12 @@ const Reviews = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">Отзывы клиентов</h1>
           <div className="flex justify-center mb-6">
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-2xl border border-white/20">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={24} className="fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <span className="font-extrabold text-2xl">4.9 / 5</span>
+              <div className="text-2xl leading-none">🤩 😊 🙂</div>
+              <span className="font-extrabold text-2xl">Отзывы клиентов</span>
             </div>
           </div>
           <p className="text-xl opacity-90 leading-relaxed max-w-2xl mx-auto text-red-100">
-            Основано на более чем 500 успешных вызовах в Алматы. Мы дорожим своей репутацией и вашей безопасностью.
+            Реальные впечатления клиентов о работе мастера Манаса в Алматы.
           </p>
         </div>
       </section>
@@ -112,7 +102,7 @@ const Reviews = () => {
                         <p className="font-bold text-gray-900 leading-tight">{review.name}</p>
                         <span className="flex items-center gap-1 bg-gray-50 text-emerald-600 text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded border border-emerald-100 flex-shrink-0">
                           <CheckCircle2 size={10} strokeWidth={3} />
-                          Проверен
+                          Отзыв
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 text-xs text-gray-400 mt-1 font-medium">
@@ -123,11 +113,7 @@ const Reviews = () => {
                   </div>
                 </div>
                 
-                <div className="flex gap-1 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
+                <div className="text-2xl mb-4 leading-none">{review.mood}</div>
                 
                 <div className="flex-1">
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">"{review.text}"</p>
@@ -149,14 +135,21 @@ const Reviews = () => {
                 ⚡
               </div>
               <h3 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
-                Поделитесь своим опытом! 📝✨
+                Поделитесь своим мнением
               </h3>
               <p className="text-gray-500 text-lg max-w-lg mx-auto leading-relaxed">
                 Ваш отзыв поможет другим клиентам выбрать надежного электрика
               </p>
             </div>
 
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); }}>
+            <form
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const msg = encodeURIComponent("Здравствуйте! Хочу оставить отзыв о работе электрика Манас.");
+                window.open(`https://wa.me/77055535332?text=${msg}`, "_blank");
+              }}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">Ваше имя *</label>
@@ -199,29 +192,13 @@ const Reviews = () => {
 
               <div>
                 <label className="block text-sm font-bold text-gray-900 mb-2">Оценка работы *</label>
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button 
-                        type="button" 
-                        key={star} 
-                        onClick={() => setRating(star)}
-                        onMouseEnter={() => setHoverRating(star)}
-                        onMouseLeave={() => setHoverRating(0)}
-                        className={`transition-all duration-200 hover:scale-110 ${
-                          star <= (hoverRating || rating) ? 'text-amber-400' : 'text-gray-300'
-                        }`}
-                      >
-                        <Star size={24} strokeWidth={1.5} className={star <= (hoverRating || rating) ? 'fill-current' : ''} />
-                      </button>
-                    ))}
-                  </div>
-                  {(hoverRating > 0 || rating > 0) && (
-                    <span className="text-sm font-semibold text-gray-700 animate-in fade-in zoom-in duration-300">
-                      {ratingTexts[hoverRating || rating]}
-                    </span>
-                  )}
-                </div>
+                <select className="w-full px-5 py-3.5 rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:ring-4 focus:ring-red-50 focus:border-[#DC2626] outline-none transition-all text-sm" required>
+                  <option value="">Выберите оценку</option>
+                  <option value="excellent">Отлично — всё понравилось</option>
+                  <option value="good">Хорошо — буду рекомендовать</option>
+                  <option value="normal">Нормально — есть замечания</option>
+                  <option value="bad">Плохо — есть проблемы</option>
+                </select>
               </div>
 
               <div>

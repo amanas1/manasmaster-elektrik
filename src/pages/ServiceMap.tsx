@@ -41,7 +41,7 @@ const ServiceMapPage = () => {
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">География выездов</h1>
           <p className="text-xl opacity-90 leading-relaxed max-w-2xl mx-auto text-red-100">
-            Работаем во всех 8 районах Алматы. Среднее время приезда электрика составляет от 30 до 45 минут в любую точку города.
+            Работаем во всех 8 районах Алматы. Время выезда зависит от района и загруженности мастера.
           </p>
         </div>
       </section>

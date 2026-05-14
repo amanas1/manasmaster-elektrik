@@ -58,15 +58,15 @@ const Header = () => {
             </div>
             <div className="hidden md:flex items-center gap-2">
               <Clock size={16} />
-              Работаем 24/7
+              Электрик на выезд
             </div>
             <div className="hidden lg:flex items-center gap-2">
               <MapPin size={16} />
-              г. Алматы, мкр. Аксай 4-11
+              Выезжаем на дом
             </div>
           </div>
           <div className="hidden sm:block font-bold tracking-wide">
-            Вызов мастера БЕСПЛАТНО!
+            Связь по телефону и WhatsApp
           </div>
         </div>
       </div>
@@ -155,9 +155,9 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden lg:block bg-gradient-to-r from-[#DC2626] to-[#E11D48] text-white px-7 py-2.5 rounded-full font-bold shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/40 hover:-translate-y-0.5 transition-all duration-300 btn-floating">
+            <a href="tel:+77055535332" className="hidden lg:block bg-gradient-to-r from-[#DC2626] to-[#E11D48] text-white px-7 py-2.5 rounded-full font-bold shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/40 hover:-translate-y-0.5 transition-all duration-300 btn-floating">
               Вызвать мастера
-            </button>
+            </a>
             
             <button 
               className="xl:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
@@ -291,4 +291,3 @@ const Header = () => {
 };
 
 export default Header;
-

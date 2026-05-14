@@ -185,7 +185,7 @@ const BlogPostShield = () => {
             <div className="bg-red-50 border-t border-red-100 p-8 md:p-12 text-center">
               <ShieldCheck size={40} className="text-[#DC2626] mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-red-700 mb-4">Нужна <Link to="/uslugi/sborka-schitov/almalinskij" className="underline">сборка или замена электрощита в Алматы</Link>?</h3>
-              <p className="text-gray-600 mb-6">Собираем щиты под ключ с автоматами ABB, Schneider, Legrand. Гарантия 12 месяцев.</p>
+              <p className="text-gray-600 mb-6">Собираем щиты под ключ с автоматами ABB, Schneider, Legrand. Подбираем защиту под нагрузку.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="tel:+77055535332" className="inline-flex items-center justify-center px-8 py-4 bg-[#DC2626] text-white font-bold rounded-2xl shadow-xl hover:bg-[#B91C1C] transition-all text-lg flex-1">
                   <Phone size={20} className="mr-2" /> +7 (705) 553-53-32

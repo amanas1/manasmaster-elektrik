@@ -206,7 +206,7 @@ const BlogPostEv = () => {
             <div className="bg-red-50 border-t border-red-100 p-8 md:p-12 text-center">
               <Zap size={40} className="text-green-500 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-red-700 mb-4">Нужна установка зарядки для электромобиля в Алматы?</h3>
-              <p className="text-gray-600 mb-6">Монтируем зарядные станции для EV в гаражах, паркингах и частных домах. Прокладка линии, установка защиты, гарантия 12 месяцев.</p>
+              <p className="text-gray-600 mb-6">Монтируем зарядные станции для EV в гаражах, паркингах и частных домах. Прокладка линии и установка защиты.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="tel:+77055535332" className="inline-flex items-center justify-center px-8 py-4 bg-[#DC2626] text-white font-bold rounded-2xl shadow-xl hover:bg-[#B91C1C] transition-all text-lg flex-1">
                   <Phone size={20} className="mr-2" /> +7 (705) 553-53-32
