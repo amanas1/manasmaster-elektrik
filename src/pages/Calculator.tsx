@@ -176,7 +176,7 @@ const CalculatorPage = () => {
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             {[
               { icon: BadgeCheck, title: "Точный расчёт", desc: "Цены актуальны на 2025 год" },
-              { icon: Clock, title: "Выезд по заявке", desc: "Согласуем удобное время" },
+              { icon: Clock, title: "Выезд по Алматы", desc: "Согласуем удобное время" },
               { icon: Shield, title: "Без скрытых платежей", desc: "Стоимость фиксируется до начала работ" },
             ].map((f) => (
               <div key={f.title} className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow">

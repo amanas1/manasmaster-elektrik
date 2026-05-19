@@ -58,15 +58,15 @@ const Header = () => {
             </div>
             <div className="hidden md:flex items-center gap-2">
               <Clock size={16} />
-              Электрик на выезд
+              Работаем по Алматы
             </div>
             <div className="hidden lg:flex items-center gap-2">
               <MapPin size={16} />
-              Выезжаем на дом
+              Электрик на выезд
             </div>
           </div>
           <div className="hidden sm:block font-bold tracking-wide">
-            Связь по телефону и WhatsApp
+            Выезд входит в стоимость заказа
           </div>
         </div>
       </div>

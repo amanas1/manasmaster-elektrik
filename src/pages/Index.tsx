@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import seoData from "../data/seo-data.json";
 import SEO from "../components/SEO";
-import { Clock, ShieldCheck, ThumbsUp, Zap, MapPin, Star, ArrowRight, CheckCircle2, Calendar, Phone } from "lucide-react";
+import { Clock, ShieldCheck, ThumbsUp, Zap, MapPin, ArrowRight, CheckCircle2, Calendar, Phone } from "lucide-react";
 import { useState } from "react";
 
 const Index = () => {
@@ -36,8 +36,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Электрик в Алматы — вызов мастера на дом | Мастер Манас"
-        description="Электрик в Алматы. Выезд мастера на дом, ремонт проводки, установка розеток, люстр, сборка щита и подключение техники."
+        title="Электрик Алматы | Услуги электрика и электромонтажные работы"
+        description="Услуги электрика в Алматы. Вызов мастера на дом, ремонт проводки, установка люстр, розеток и сборка электрощита. Звонок или WhatsApp."
         keywords="Электрик Алматы, электрик, электромонтажные работы, вызвать электрика, услуги электрика в Алматы, ремонт проводки, установка люстр, монтаж розеток, электрик на дом"
         canonical="https://manasmaster.kz/"
       />
@@ -63,20 +63,6 @@ const Index = () => {
             "latitude": 43.238949,
             "longitude": 76.889709
           },
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
-          },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Услуги электрика",
@@ -98,7 +84,7 @@ const Index = () => {
       <section className="relative min-h-[650px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero_electrician.png')" }}
+          style={{ backgroundImage: "url('/images/hero_electrician.png')", transform: "scaleX(-1)" }}
           title="Мастер Манас выполняет электромонтажные работы"
         >
           <div className="absolute inset-0 bg-gray-900/40" />
@@ -106,10 +92,10 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Электрик в Алматы — <br /> профессионал своего дела
+              Электрик в Алматы <br /> профессионал своего дела
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-xl leading-relaxed font-medium">
-              Электромонтажные работы для квартиры и дома. Выезд по Алматы и пригородам.
+              Электромонтажные работы для квартиры, дома и офиса. Выезд мастера по Алматы.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a href="tel:+77055535332" className="bg-gradient-to-r from-[#DC2626] to-[#E11D48] text-white px-10 py-5 rounded-[1.5rem] font-bold text-lg shadow-xl shadow-red-500/30 hover:shadow-2xl hover:shadow-red-500/40 hover:-translate-y-1 active:scale-95 transition-all duration-300">
@@ -117,16 +103,16 @@ const Index = () => {
           </a>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-semibold px-6 py-4 rounded-xl flex items-center gap-3">
                 <span className="flex h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse"></span>
-                Электрик на выезд
+                Выезд входит в стоимость заказа
               </div>
             </div>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl">
             {[
               { value: "1000+", label: "клиентов" },
-              { value: "15 лет", label: "стажа" },
+              { value: "15 лет", label: "опыта" },
               { value: "12/7", label: "работаем" },
-              { value: "30 мин", label: "выезд на дом" },
+              { value: "до часа", label: "выезд" },
             ].map((stat) => (
               <div key={stat.label} className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center text-white">
                 <div className="text-3xl font-extrabold mb-1">{stat.value}</div>
@@ -174,7 +160,7 @@ const Index = () => {
               ))}
             </div>
             <p className="text-center text-xs text-gray-400 mt-5">
-              Выезд входит в стоимость при заказе работ
+              Выезд входит в стоимость заказа
             </p>
           </div>
         </div>
@@ -242,9 +228,9 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Clock, title: "Выезд на дом", desc: "Согласуем удобное время и приедем по адресу." },
-              { icon: ShieldCheck, title: "Аккуратная работа", desc: "Делаем безопасно, чисто и по понятной смете." },
-              { icon: ThumbsUp, title: "Опытный мастер", desc: "Практический опыт работы с домашней электрикой." },
+              { icon: Clock, title: "Выезд по Алматы", desc: "Согласуем адрес, задачу и удобное время приезда мастера." },
+              { icon: ShieldCheck, title: "Аккуратная работа", desc: "Проверяем соединения и объясняем, что было сделано." },
+              { icon: ThumbsUp, title: "Мастер на дом", desc: "Помощь с проводкой, розетками, освещением и щитами." },
               { icon: CheckCircle2, title: "Честные цены", desc: "Озвучиваем стоимость до начала работ, никаких скрытых доплат." },
             ].map((item, idx) => (
               <div key={idx} className="bg-slate-50 p-8 rounded-[1.5rem] border border-slate-100 flex flex-col items-center text-center">
@@ -266,8 +252,8 @@ const Index = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">О мастере Манасе</h2>
               <div className="space-y-4 text-[16px] text-slate-600 font-medium leading-relaxed mb-8">
-                <p>Мастер Манас выполняет электромонтажные работы в Алматы и пригороде: ремонт проводки, установку розеток, светильников, автоматов и подключение техники.</p>
-                <p>Главный принцип — сделать работу аккуратно, безопасно и объяснить клиенту, что именно было исправлено.</p>
+                <p>Мастер Манас выполняет электромонтажные работы в Алматы: ремонт проводки, установку розеток, светильников и сборку электрощитов.</p>
+                <p>Главная цель — аккуратная работа, понятная стоимость и безопасное решение задачи в квартире, доме или офисе.</p>
               </div>
               <ul className="space-y-4 mb-8">
                 {[
@@ -290,8 +276,8 @@ const Index = () => {
               <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-lg">
                 <img 
                   src="/images/master-manas-electrician.webp" 
-                  alt="Мастер Манас выполняет электромонтажные работы" 
-                  title="Электрик Манас в Алматы"
+                  alt="Электрик Manasmaster выполняет работы у электрощита" 
+                  title="Электрик Manasmaster - выезд по Алматы"
                   className="w-full h-full object-cover" 
                 />
               </div>
@@ -308,9 +294,9 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { bg: "bg-[#DC2626]", letter: "А", name: "Айгуль С.", date: "15 янв 2025", text: "Вызывала электрика для замены проводки и установки новых розеток. Мастер приехал по согласованному времени, всё сделал аккуратно и быстро. Цены адекватные. Рекомендую!", rating: 5 },
-              { bg: "bg-green-500", letter: "К", name: "Кайрат М.", date: "10 фев 2025", text: "Отличный мастер! Собрал электрощит в коттедже и подключил всё оборудование. Работает чисто, всё объяснил. Гарантию дал на год. Очень доволен.", rating: 5 },
-              { bg: "bg-purple-500", letter: "Н", name: "Наталья П.", date: "28 фев 2025", text: "Нужно было повесить люстры и бра после ремонта. Манас приехал в удобное время, всё закрепил надежно. Мастер на все руки!", rating: 5 },
+              { bg: "bg-[#DC2626]", letter: "А", name: "Айгуль С.", date: "15 янв 2025", text: "Вызывала электрика для замены проводки и установки новых розеток. Мастер всё сделал аккуратно, объяснил по материалам и стоимости. Рекомендую." },
+              { bg: "bg-green-500", letter: "К", name: "Кайрат М.", date: "10 фев 2025", text: "Манас собрал электрощит в коттедже и подключил оборудование. Работает чисто, спокойно объясняет каждый этап. Остался доволен." },
+              { bg: "bg-purple-500", letter: "Н", name: "Наталья П.", date: "28 фев 2025", text: "Нужно было повесить люстры и бра после ремонта. Всё закрепил ровно и аккуратно, после работы оставил порядок." },
             ].map((review) => (
               <div key={review.name} className="bg-slate-50 rounded-[1.5rem] p-8 border border-slate-100">
                 <div className="flex items-center justify-between mb-5">
@@ -323,11 +309,7 @@ const Index = () => {
                       <div className="text-[12px] text-slate-400 font-medium">{review.date}</div>
                     </div>
                   </div>
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
+                  <div className="text-xl" aria-label="Отзыв клиента">🙂</div>
                 </div>
                 <p className="text-slate-600 text-[14px] leading-relaxed">"{review.text}"</p>
               </div>
@@ -353,7 +335,7 @@ const Index = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">Нужен грамотный специалист?</h2>
               <p className="text-lg text-slate-300 font-medium mb-10 leading-relaxed">
-                Оставьте заявку, и мастер свяжется с вами для уточнения деталей.
+                Оставьте заявку или позвоните. Уточним задачу, адрес и удобное время выезда.
               </p>
               <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-4">
@@ -361,7 +343,7 @@ const Index = () => {
                     <Phone size={24} className="text-[#FB7185]" />
                   </div>
                   <div>
-                    <div className="text-[13px] text-slate-400 font-medium mb-1">Звоните или пишите в WhatsApp</div>
+                    <div className="text-[13px] text-slate-400 font-medium mb-1">Звонок или WhatsApp</div>
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
                       <a href="tel:+77055535332" className="text-xl font-extrabold block hover:text-[#FB7185] transition-colors">+7 705 553 53 32</a>
                       <a href="tel:+77074791020" className="text-xl font-extrabold block hover:text-[#FB7185] transition-colors">+7 707 479 10 20</a>
@@ -373,8 +355,8 @@ const Index = () => {
                     <MapPin size={24} className="text-[#FB7185]" />
                   </div>
                   <div>
-                    <div className="text-[13px] text-slate-400 font-medium mb-1">Формат работы</div>
-                    <div className="text-[15px] font-bold">Выезжаем на дом</div>
+                    <div className="text-[13px] text-slate-400 font-medium mb-1">Наш адрес</div>
+                    <div className="text-[15px] font-bold">г. Алматы, мкр. Аксай 4-11</div>
                   </div>
                 </div>
               </div>
@@ -418,14 +400,14 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
-              { q: "Сколько стоит вызов электрика в Алматы?", a: "Стоимость вызова электрика начинается от 3 500 ₸. Точная цена озвучивается до начала работ после осмотра." },
-              { q: "Как быстро приедет мастер?", a: "Время выезда зависит от района и загруженности. Обычно стараемся приехать в течение часа." },
-              { q: "Даёте ли гарантию на электромонтажные работы?", a: "Да, гарантия обсуждается по виду работ и фиксируется после выполнения услуги." },
+              { q: "Сколько стоит вызов электрика в Алматы?", a: "Стоимость вызова электрика начинается от 3 500 ₸. Выезд входит в стоимость заказа. Точная цена озвучивается до начала работ после осмотра." },
+              { q: "Как быстро приедет мастер?", a: "Время выезда зависит от района, дорожной ситуации и текущей загрузки. При обращении согласуем удобное время." },
+              { q: "Даёте ли гарантию на электромонтажные работы?", a: "Да, на выполненные работы предоставляется гарантия. Условия зависят от вида услуги и используемых материалов." },
               { q: "Какие районы Алматы вы обслуживаете?", a: "Обслуживаем все 8 районов: Алатауский, Алмалинский, Ауэзовский, Бостандыкский, Жетысуский, Медеуский, Наурызбайский и Турксибский." },
-              { q: "Можно ли вызвать электрика вечером?", a: "Да, можно согласовать удобное время выезда по телефону или через WhatsApp." },
-              { q: "Какие материалы вы используете?", a: "Подбираем кабели, автоматы, розетки и комплектующие под конкретную задачу и нагрузку." },
+              { q: "Можно ли вызвать электрика срочно?", a: "Да, можно оставить срочную заявку. Возможность выезда зависит от района и текущей занятости мастера." },
+              { q: "Какие материалы вы используете?", a: "Используем подходящие кабели, автоматы, розетки и комплектующие под конкретную задачу и нагрузку." },
               { q: "Подключаете ли электроплиты и бойлеры?", a: "Да, подключаем все виды мощной бытовой техники: электроплиты, духовые шкафы, бойлеры, кондиционеры. При необходимости прокладываем отдельную силовую линию." },
-              { q: "Можно ли заранее узнать цену?", a: "Да, мастер уточнит задачу, адрес и примерный объем работ, затем назовет ориентир по стоимости." },
+              { q: "Можно ли заранее узнать цену?", a: "Да, сначала уточняем задачу и называем ориентировочную стоимость. Точная цена согласуется до начала работ." },
               { q: "Нужно ли убирать после работы самому?", a: "Нет. После завершения все работ мастер самостоятельно убирает строительный мусор и пыль. Мы оставляем квартиру в чистоте." },
               { q: "Можно ли вызвать электрика на дачу или в частный дом?", a: "Да, выезжаем не только по Алматы, но и в пригород: Алатау, Каскелен, Талгар, Есик. Стоимость выезда за город уточняется индивидуально." },
             ].map((item, i) => (
@@ -449,7 +431,7 @@ const Index = () => {
             Электрик в Алматы — вызов мастера на дом | Мастер Манас
           </h2>
           <p className="text-center text-slate-500 text-[15px] mb-10 max-w-2xl mx-auto">
-            Электромонтажные работы для квартиры, дома и коммерческих помещений.
+            Электромонтажные работы по Алматы: проводка, розетки, освещение и электрощиты.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-[14px] text-slate-600 leading-relaxed">
@@ -458,27 +440,27 @@ const Index = () => {
             <div className="space-y-4">
               <h3 className="text-[17px] font-bold text-slate-900">Электромонтажные работы в Алматы</h3>
               <p>
-                Если вам нужно <strong>вызвать электрика в Алматы</strong> — мастер согласует время и приедет по адресу.
-                Компания «Мастер Манас» выполняет полный спектр <strong>электромонтажных работ</strong>: от замены розетки и
+                Если вам нужно <strong>вызвать электрика в Алматы</strong>, мастер Манас поможет с бытовыми и монтажными задачами.
+                Выполняются <strong>электромонтажные работы</strong>: от замены розетки и
                 установки люстры до монтажа новой проводки под ключ и сборки электрощита.
               </p>
               <p>
                 Наши <strong>услуги электрика в Алматы</strong> включают подключение мощной бытовой техники (электроплиты, бойлеры,
                 кондиционеры), монтаж тёплых полов, установку зарядных станций для электромобилей и систем аварийного освещения.
-                Работы выполняются аккуратно, с проверкой соединений и понятным объяснением результата.
+                Работы выполняются аккуратно, с проверкой соединений и согласованием стоимости до начала.
               </p>
               <p>
-                Работаем с квартирами, частными домами, офисами и коммерческими помещениями.
+                Работаем с квартирами, частными домами, офисами и коммерческими помещениями. Выезд входит в стоимость заказа.
               </p>
               <h3 className="text-[16px] font-bold text-slate-900 pt-2">Популярные услуги электрика</h3>
               <ul className="space-y-1.5">
                 {[
-                  { label: "Вызов электрика на дом в Алматы", to: "/uslugi/vyzov-elektrika/medeuski" },
-                  { label: "Замена и ремонт электропроводки", to: "/uslugi/zamena-provodki/bostandykski" },
+                  { label: "Вызов электрика на дом в Алматы", to: "/uslugi/vyzov-elektrika/medeuskij" },
+                  { label: "Замена и ремонт электропроводки", to: "/uslugi/remont-provodki/bostandykskij" },
                   { label: "Установка люстр и светильников", to: "/uslugi/ustanovka-lyustr/almalinskij" },
-                  { label: "Монтаж и замена электрощита", to: "/uslugi/sborka-schitov/auezovskyj" },
-                  { label: "Установка розеток и выключателей", to: "/uslugi/rozetki-vyklyuchateli/zhetysuski" },
-                  { label: "Подключение бытовой техники", to: "/uslugi/podkluchenie-tehniki/bostandykski" },
+                  { label: "Монтаж и замена электрощита", to: "/uslugi/sborka-schitov/auezovskij" },
+                  { label: "Установка розеток и выключателей", to: "/uslugi/ustanovka-rozetok/zhetysuskij" },
+                  { label: "Подключение бытовой техники", to: "/uslugi/podkluchenie-tehniki/bostandykskij" },
                 ].map((item) => (
                   <li key={item.to}>
                     <Link to={item.to} className="text-[#DC2626] hover:underline font-medium">→ {item.label}</Link>
@@ -491,29 +473,29 @@ const Index = () => {
             <div className="space-y-4">
               <h3 className="text-[17px] font-bold text-slate-900">Электрик по районам Алматы</h3>
               <p>
-                Наши мастера работают во всех 8 районах Алматы без исключения.
+                Мастер выезжает по районам Алматы.
                 <strong> Электрик в Медеуском районе</strong>, <strong>Бостандыкском</strong>, <strong>Алмалинском</strong> и других —
-                приедет к вам по согласованному времени. Мы знаем особенности застройки каждого района:
+                можно вызвать на дом или объект. Учитываем особенности застройки каждого района:
                 от старых хрущёвок в центре с алюминиевой проводкой до новостроек в Наурызбайском и частного
                 сектора в Алатауском.
               </p>
               <p>
-                Независимо от района, вы получаете одинаково высокое качество: опытный мастер-<strong>электрик</strong>,
-                качественные материалы, честный прайс и аккуратная работа. Позвоните нам:{" "}
+                Независимо от района, вы получаете аккуратную работу мастера-<strong>электрика</strong>,
+                понятный прайс и согласование деталей до начала. Позвоните нам:{" "}
                 <a href="tel:+77055535332" className="text-[#DC2626] font-bold">+7 (705) 553-53-32</a>{" или "}
                 <a href="tel:+77074791020" className="text-[#DC2626] font-bold">+7 (707) 479-10-20</a>.
               </p>
               <h3 className="text-[16px] font-bold text-slate-900 pt-2">Выбрать район</h3>
               <ul className="grid grid-cols-2 gap-1.5">
                 {[
-                  { label: "Медеуский район", to: "/uslugi/vyzov-elektrika/medeuski" },
-                  { label: "Бостандыкский", to: "/uslugi/vyzov-elektrika/bostandykski" },
+                  { label: "Медеуский район", to: "/uslugi/vyzov-elektrika/medeuskij" },
+                  { label: "Бостандыкский", to: "/uslugi/vyzov-elektrika/bostandykskij" },
                   { label: "Алмалинский", to: "/uslugi/vyzov-elektrika/almalinskij" },
-                  { label: "Ауэзовский", to: "/uslugi/vyzov-elektrika/auezovskyj" },
-                  { label: "Жетысуский", to: "/uslugi/vyzov-elektrika/zhetysuski" },
-                  { label: "Алатауский", to: "/uslugi/vyzov-elektrika/alatauski" },
-                  { label: "Наурызбайский", to: "/uslugi/vyzov-elektrika/nauryzbaiski" },
-                  { label: "Турксибский", to: "/uslugi/vyzov-elektrika/turksibski" },
+                  { label: "Ауэзовский", to: "/uslugi/vyzov-elektrika/auezovskij" },
+                  { label: "Жетысуский", to: "/uslugi/vyzov-elektrika/zhetysuskij" },
+                  { label: "Алатауский", to: "/uslugi/vyzov-elektrika/alatauskij" },
+                  { label: "Наурызбайский", to: "/uslugi/vyzov-elektrika/nauryzbajskij" },
+                  { label: "Турксибский", to: "/uslugi/vyzov-elektrika/turksibskij" },
                 ].map((item) => (
                   <li key={item.to}>
                     <Link to={item.to} className="text-[#DC2626] hover:underline font-medium text-[13px]">→ {item.label}</Link>

@@ -6,8 +6,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col pt-24 md:pt-32 pb-20">
       <SEO 
-        title="О компании | Электрик в Алматы — Мастер Манас"
-        description="Электрик в Алматы — Мастер Манас. Электромонтажные работы, ремонт проводки, установка розеток, света и сборка щита."
+        title="О мастере | Электрик в Алматы — Мастер Манас"
+        description="Мастер Манас выполняет электромонтажные работы в Алматы: проводка, розетки, освещение, электрощиты и подключение техники."
         keywords="электрик Алматы, о компании, Мастер Манас, электрики Алматы"
         canonical="https://manasmaster.kz/about"
       />
@@ -20,7 +20,7 @@ const About = () => {
             <span>/</span>
             <span className="text-slate-900">О компании</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">О компании Мастер Манас</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">О мастере Манасе</h1>
         </div>
       </section>
 
@@ -33,21 +33,21 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">Наша история</h2>
               <div className="space-y-4 text-lg text-slate-600 leading-relaxed font-medium">
                 <p>
-                  Компания "Мастер Манас" занимается электромонтажными работами в Алматы с 2015 года. Наша цель — обеспечивать безопасность и надежность электроснабжения в домах и офисах наших клиентов. 
+                  Мастер Манас занимается электромонтажными работами в Алматы. Основная задача — аккуратно и безопасно решить проблему с электричеством в квартире, доме или офисе.
                 </p>
                 <div className="my-8 rounded-[2rem] overflow-hidden shadow-lg aspect-video md:aspect-[16/9]">
                   <img 
-                src="/images/master-manas-electrician.webp" 
+                src="/images/services/vyzov-elektrika.png" 
                 alt="Мастер Манас за работой — профессиональный электрик в Алматы" 
-                title="Мастер Манас: Профессиональный электрик с 10-летним опытом"
+                title="Мастер Манас: электрик в Алматы"
                 className="w-full h-full object-cover rounded-2xl shadow-lg border border-gray-100"
               />
                 </div>
                 <p>
-                  Мы начинали как небольшая группа квалифицированных электромонтажников. Сегодня мы выполняем задачи любой сложности: от замены перегоревшей розетки до проектирования и монтажа электрики в крупных объектах.
+                  Выполняются разные задачи: от замены перегоревшей розетки до прокладки новой линии, установки освещения и сборки электрощита.
                 </p>
                 <p>
-                  Мы постоянно совершенствуем свои знания, следим за новыми технологиями и используем современное профессиональное оборудование. Наш девиз: "Безопасность превыше всего".
+                  В работе используется профессиональный инструмент, а стоимость и порядок работ согласуются до начала.
                 </p>
               </div>
             </div>
@@ -55,23 +55,23 @@ const About = () => {
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <Users size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-3xl font-extrabold text-slate-900 block mb-1">1000+</span>
-                <span className="text-[15px] text-slate-500 font-medium">клиентов</span>
+                <span className="text-3xl font-extrabold text-slate-900 block mb-1">Алматы</span>
+                <span className="text-[15px] text-slate-500 font-medium">выезд</span>
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <Calendar size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-3xl font-extrabold text-slate-900 block mb-1">15 лет</span>
-                <span className="text-[15px] text-slate-500 font-medium">опыта</span>
+                <span className="text-3xl font-extrabold text-slate-900 block mb-1">2</span>
+                <span className="text-[15px] text-slate-500 font-medium">телефона</span>
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <ShieldCheck size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Гарантия на работу</span>
-                <span className="text-[15px] text-slate-500 font-medium">по виду услуги</span>
+                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Гарантия</span>
+                <span className="text-[15px] text-slate-500 font-medium">на работы</span>
               </div>
               <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center">
                 <Star size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4" />
-                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Выезд на дом</span>
-                <span className="text-[15px] text-slate-500 font-medium">Алматы и пригород</span>
+                <span className="text-[17px] font-extrabold text-slate-900 block mb-1">Отзывы</span>
+                <span className="text-[15px] text-slate-500 font-medium">мнения клиентов</span>
               </div>
             </div>
 
@@ -88,11 +88,11 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Безопасность", desc: "Строгое соблюдение ПУЭ и всех норм безопасности." },
-              { title: "Качество материалов", desc: "Подбираем кабель и автоматику под конкретную задачу и нагрузку." },
-              { title: "Оперативность", desc: "Выезжаем для устранения аварийных ситуаций максимально быстро." },
+              { title: "Безопасность", desc: "Перед работой оцениваем задачу и проверяем соединения." },
+              { title: "Качество материалов", desc: "Подбираем кабель, автоматы и комплектующие под нагрузку." },
+              { title: "Выезд по Алматы", desc: "Согласуем район, адрес и удобное время приезда мастера." },
               { title: "Прозрачность", desc: "Точная смета до начала работ без скрытых расходов." },
-              { title: "Гарантия", desc: "Несем полную ответственность за выполненную работу в течение года." },
+              { title: "Гарантия", desc: "Условия гарантии зависят от вида работы и материалов." },
               { title: "Порядок", desc: "Всегда убираем за собой строительный мусор." },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100">
@@ -114,9 +114,9 @@ const About = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Безопасность", desc: "Перед подключением проверяем нагрузку, соединения и состояние линии." },
-              { title: "ПУЭ Стандарты", desc: "Работа в строгом соответствии с Правилами Устройства Электроустановок." },
-              { title: "Техника безопасности", desc: "Соблюдение правил ТБ при проведении высотных и монтажных работ." },
+              { title: "Диагностика", desc: "Сначала уточняем проблему и проверяем основные узлы." },
+              { title: "Безопасность", desc: "Подбираем решение с учётом нагрузки и состояния проводки." },
+              { title: "Аккуратность", desc: "Стараемся выполнять работу чисто и без лишних повреждений." },
               { title: "Качественный инструмент", desc: "Использование профессионального измерительного оборудования и инструмента." },
             ].map((item, idx) => (
               <div key={idx} className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 text-center flex flex-col items-center">
@@ -126,7 +126,7 @@ const About = () => {
                 <h3 className="text-[17px] font-bold text-slate-900 mb-2">{item.title}</h3>
                 <p className="text-[14px] text-slate-500 font-medium leading-loose">{item.desc}</p>
                 <div className="mt-4 inline-block px-3 py-1 bg-green-50 text-green-600 text-[11px] font-bold uppercase tracking-wider rounded-md border border-green-100">
-                  Соответствие нормам
+                  Рабочий подход
                 </div>
               </div>
             ))}

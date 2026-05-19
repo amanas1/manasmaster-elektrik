@@ -20,7 +20,7 @@ const Contacts = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = encodeURIComponent(
-      `Здравствуйте! Хочу вызвать электрика.\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nАдрес: ${formData.address}\nУслуга: ${formData.service}\nДата: ${formData.date}\nВремя: ${formData.time}${formData.message ? `\nКомментарий: ${formData.message}` : ""}`
+      `Заявка с сайта manasmaster.kz\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nАдрес: ${formData.address}\nУслуга: ${formData.service}\nДата: ${formData.date}\nВремя: ${formData.time}${formData.message ? `\nОписание: ${formData.message}` : ""}`
     );
     window.open(`https://wa.me/77055535332?text=${msg}`, "_blank");
   };
@@ -29,7 +29,7 @@ const Contacts = () => {
     <div className="min-h-screen bg-gray-50/50 flex flex-col pt-24 md:pt-32 pb-20">
       <SEO 
         title="Контакты | Вызов электрика в Алматы"
-        description="Свяжитесь с мастером Манасом для вызова электрика на дом в Алматы. Телефоны: +7 (705) 553-53-32, +7 (707) 479-10-20."
+        description="Контакты электрика в Алматы. Телефоны: +7 (705) 553-53-32 и +7 (707) 479-10-20. Звонок, WhatsApp и заявка на выезд мастера."
       />
       
       <div className="container mx-auto px-6 max-w-6xl">
@@ -52,7 +52,7 @@ const Contacts = () => {
               <a href="tel:+77055535332" className="text-xl font-extrabold text-[#DC2626] hover:text-[#B91C1C] transition-colors">+77055535332</a>
               <a href="tel:+77074791020" className="text-xl font-extrabold text-[#DC2626] hover:text-[#B91C1C] transition-colors">+77074791020</a>
             </div>
-            <span className="text-[13px] text-gray-400 font-medium mt-3">Звоните или пишите в WhatsApp</span>
+            <span className="text-[13px] text-gray-400 font-medium mt-3">Звонок или WhatsApp</span>
           </div>
 
           <a href="https://wa.me/77074791020" target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-md transition-all text-center group flex flex-col items-center">
@@ -72,8 +72,8 @@ const Contacts = () => {
           <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-md transition-all text-center group flex flex-col items-center">
             <Clock size={32} strokeWidth={1.5} className="text-[#DC2626] mb-4 group-hover:scale-110 transition-transform" />
             <h3 className="text-[17px] font-bold text-gray-900 mb-3">Выезд мастера</h3>
-            <span className="text-xl font-extrabold text-[#DC2626] block mb-1">по заявке</span>
-            <span className="text-[13px] text-gray-400 font-medium">Согласуем удобное время</span>
+            <span className="text-xl font-extrabold text-[#DC2626] block mb-1">Алматы</span>
+            <span className="text-[13px] text-gray-400 font-medium">По заявке</span>
           </div>
 
         </div>
@@ -85,12 +85,12 @@ const Contacts = () => {
           <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-gray-100 h-full">
             <div className="flex items-center gap-3 mb-6">
               <MapPin size={24} strokeWidth={2} className="text-[#DC2626]" />
-              <h2 className="text-2xl font-extrabold text-gray-900">Формат работы</h2>
+              <h2 className="text-2xl font-extrabold text-gray-900">Адрес офиса</h2>
             </div>
             
             <div className="mb-8">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-1">Выезжаем на дом</h3>
-              <p className="text-gray-500 font-medium text-[15px]">Алматы и ближайший пригород</p>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-1">г. Алматы, микрорайон Аксай 4-11</h3>
+              <p className="text-gray-500 font-medium text-[15px]">Офис мастера Манаса</p>
             </div>
 
             <h4 className="text-[15px] font-bold text-gray-900 mb-4">Районы обслуживания:</h4>
@@ -128,7 +128,7 @@ const Contacts = () => {
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 rounded-full bg-[#DC2626] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-sm">4</div>
-                <p className="text-[15px] text-gray-700 font-medium leading-relaxed">Осмотр, согласование цены и выполнение работ</p>
+                <p className="text-[15px] text-gray-700 font-medium leading-relaxed">Диагностика, выполнение работ и выдача гарантии</p>
               </div>
             </div>
           </div>
@@ -139,23 +139,23 @@ const Contacts = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
             <ShieldCheck size={28} strokeWidth={1.5} className="text-green-600 mb-3" />
-            <span className="font-extrabold text-gray-900 text-[15px] mb-1">Гарантия на работу</span>
-            <span className="text-[13px] text-gray-500 font-medium">По виду выполненной услуги</span>
+            <span className="font-extrabold text-gray-900 text-[15px] mb-1">Гарантия</span>
+            <span className="text-[13px] text-gray-500 font-medium">По виду работ</span>
           </div>
           <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
             <Zap size={28} strokeWidth={1.5} className="text-[#DC2626] mb-3" />
             <span className="font-extrabold text-gray-900 text-[15px] mb-1">Быстрый выезд</span>
-            <span className="text-[13px] text-gray-500 font-medium">По согласованному времени</span>
+            <span className="text-[13px] text-gray-500 font-medium">По Алматы</span>
           </div>
           <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
             <Star size={28} strokeWidth={1.5} className="text-amber-500 mb-3" />
             <span className="font-extrabold text-gray-900 text-[15px] mb-1">Отзывы клиентов</span>
-            <span className="text-[13px] text-gray-500 font-medium">Живые впечатления о работе</span>
+            <span className="text-[13px] text-gray-500 font-medium">Мнения о работе</span>
           </div>
           <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
             <PhoneCall size={28} strokeWidth={1.5} className="text-[#DC2626] mb-3" />
-            <span className="font-extrabold text-gray-900 text-[15px] mb-1">Выезд на дом</span>
-            <span className="text-[13px] text-gray-500 font-medium">Алматы и пригород</span>
+            <span className="font-extrabold text-gray-900 text-[15px] mb-1">Выезд мастера</span>
+            <span className="text-[13px] text-gray-500 font-medium">Входит в стоимость заказа</span>
           </div>
         </div>
 

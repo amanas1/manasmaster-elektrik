@@ -23,12 +23,12 @@ const Hero = () => {
             Электрик в Алматы
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-[#FB7185]">
-              профессионал своего дела
+              по Алматы
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-lg leading-relaxed font-medium">
-            Электромонтажные работы для квартиры и дома. Выезд по Алматы и пригородам.
+            Услуги электрика в Алматы: проводка, розетки, освещение, щиты и подключение техники.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -53,10 +53,10 @@ const Hero = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16 lg:mt-24 max-w-4xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
           {[
-            { value: "1000+", label: "Клиентов" },
-            { value: "15 лет", label: "Стажа" },
-            { value: "12/7", label: "Работаем" },
-            { value: "30 мин", label: "Выезд на дом" },
+            { value: "Алматы", label: "Выезд мастера" },
+            { value: "12+", label: "Лет опыта" },
+            { value: "WhatsApp", label: "Быстрая связь" },
+            { value: "2", label: "Телефона" },
           ].map((stat) => (
             <div key={stat.label} className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center shadow-xl hover:-translate-y-1 transition-transform duration-300">
               <div className="text-3xl md:text-4xl font-extrabold text-white mb-1 group-hover:scale-110 transition-transform">

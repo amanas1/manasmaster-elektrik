@@ -27,15 +27,45 @@ const ServiceDistrictPage = () => {
   }
 
   const locationText = district.id === "almaty" ? "Алматы" : `${district.nameGenitive} Алматы`;
-  const title = `${service.title} в ${locationText} | Мастер Манас`;
-  const description = `${service.title} в ${locationText} — ${service.price}. Выезд мастера на дом по согласованному времени. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const isAlmatyPage = district.id === "almaty";
+  const title = isAlmatyPage
+    ? `${service.seoTitle || `${service.title} в ${locationText}`} | Мастер Манас`
+    : `${service.title} в ${locationText} | Мастер Манас`;
+  const description = isAlmatyPage
+    ? `${service.description || service.longDescription || service.title}. Выезд мастера по Алматы, звонок или WhatsApp. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`
+    : `${service.title} в ${locationText} — ${service.price}. Выезд мастера по району, звонок или WhatsApp. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const keywords = isAlmatyPage
+    ? service.id === "ustanovka-generatora"
+      ? `генератор, установка и подключение генератора, подключение генератора, АВР, резервное питание, генератор Алматы, подключение генератора к дому, выезд мастера, звонок WhatsApp`
+      : `${service.title}, ${service.seoTitle || service.title}, ${locationText}, выезд мастера, звонок, WhatsApp, услуги электрика`
+    : `${service.title}, ${locationText}, выезд мастера, звонок, WhatsApp`;
+  const canonical = isAlmatyPage
+    ? `https://manasmaster.kz/${serviceId}-almaty`
+    : `https://manasmaster.kz/uslugi/${serviceId}/${district.id}`;
+  const benefits = service.id === "ustanovka-generatora" && isAlmatyPage
+    ? [
+        "Подключение генератора к дому и проверка линии",
+        "Монтаж АВР или ручного переключателя",
+        "Проверка фаз, защиты и резервного питания",
+        "Выезд мастера по Алматы по заявке",
+        "Согласование по телефону или WhatsApp",
+        "Чистая и аккуратная работа без лишнего шума",
+      ]
+    : [
+        `Выезд мастера в ${district.name} по заявке`,
+        "Гарантия зависит от вида работы и материалов",
+        "Честные цены без накруток и скрытых платежей",
+        "Стоимость согласуется до начала работ",
+        "Выезд входит в стоимость заказа",
+        "Чистота после работы — убираем за собой",
+      ];
 
   // Get other services for cross-linking
   const otherServices = seoData.services.filter((s) => s.id !== serviceId).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} keywords={keywords} canonical={canonical} />
 
       {/* Hero Banner with Image */}
       <div className="relative min-h-[350px] overflow-hidden">
@@ -90,14 +120,7 @@ const ServiceDistrictPage = () => {
 
               <h3 className="text-xl font-bold mb-4">Наши преимущества в {district.nameGenitive}:</h3>
               <ul className="space-y-3">
-                {[
-                  `Выезд на дом в ${district.name} по согласованному времени`,
-                  "Гарантия зависит от вида выполненных работ",
-                  "Честные цены без накруток и скрытых платежей",
-                  "Практический опыт работы с домашней электрикой",
-                  "Осмотр и согласование цены до начала работ",
-                  "Чистота после работы — убираем за собой",
-                ].map((item) => (
+                {benefits.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle size={20} className="text-[#4ADE80] shrink-0 mt-0.5" />
                     <span className="text-gray-600">{item}</span>
@@ -213,7 +236,7 @@ const ServiceDistrictPage = () => {
                 💬 WhatsApp
               </a>
 
-              <p className="text-xs text-gray-400 text-center mt-3">Бесплатная консультация</p>
+              <p className="text-xs text-gray-400 text-center mt-3">Звонок или WhatsApp</p>
             </div>
           </div>
         </div>

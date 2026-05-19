@@ -18,16 +18,16 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-sm text-gray-600 leading-relaxed mb-6">
-              Профессиональные услуги электрика в Алматы. Работаем с 2010 года.
+              Услуги электрика в Алматы: проводка, розетки, освещение, щиты и подключение техники.
             </p>
             <div className="flex gap-4">
               <div className="bg-red-50 px-3 py-2 rounded-lg text-center">
-                <div className="font-extrabold text-[#DC2626] text-lg leading-tight">1500+</div>
-                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Клиентов</div>
+                <div className="font-extrabold text-[#DC2626] text-lg leading-tight">Алматы</div>
+                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Выезд</div>
               </div>
               <div className="bg-green-50 px-3 py-2 rounded-lg text-center">
-                <div className="font-extrabold text-green-600 text-lg leading-tight">10</div>
-                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Лет опыта</div>
+                <div className="font-extrabold text-green-600 text-lg leading-tight">2</div>
+                <div className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Телефона</div>
               </div>
             </div>
           </div>
@@ -38,9 +38,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: "Вызов электрика", path: "/uslugi/vyzov-elektrika/medeuskij" },
-                { name: "Установка люстры", path: "/uslugi/ustanovka-lyustry/medeuskij" },
+                { name: "Установка люстры", path: "/uslugi/ustanovka-lyustr/medeuskij" },
                 { name: "Ремонт проводки", path: "/uslugi/remont-provodki/medeuskij" },
-                { name: "Замена розеток", path: "/uslugi/zamena-rozetok/medeuskij" }
+                { name: "Замена розеток", path: "/uslugi/ustanovka-rozetok/medeuskij" }
               ].map((link) => (
                 <li key={link.name}>
                   <Link to={link.path} className="text-gray-600 text-sm hover:text-[#DC2626] transition-colors flex items-center gap-2 group">
@@ -89,7 +89,7 @@ const Footer = () => {
                       <div className="text-sm font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors">+7 (707) 479-10-20</div>
                     </div>
                   </a>
-                  <div className="text-xs text-gray-500 ml-11 mt-1">Звоните или пишите в WhatsApp</div>
+                  <div className="text-xs text-gray-500 ml-11 mt-1">Звонок или WhatsApp</div>
                 </div>
               </li>
               <li>
@@ -99,7 +99,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-gray-900 group-hover:text-[#25D366] transition-colors">Написать в WhatsApp</div>
-                    <div className="text-xs text-gray-500">Ответим, как только будем на связи</div>
+                    <div className="text-xs text-gray-500">Связь через WhatsApp</div>
                   </div>
                 </a>
               </li>
@@ -108,8 +108,8 @@ const Footer = () => {
                   <MapPin size={14} className="text-gray-600" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900">Алматы и пригород</div>
-                  <div className="text-xs text-gray-500">Выезжаем на дом</div>
+                  <div className="text-sm font-medium text-gray-900">г. Алматы</div>
+                  <div className="text-xs text-gray-500">мкр. Аксай 4-11</div>
                 </div>
               </li>
             </ul>

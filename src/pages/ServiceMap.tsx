@@ -10,22 +10,22 @@ interface DistrictInfo {
 }
 
 const districts: DistrictInfo[] = [
-  { id: "almalinskij", name: "Алмалинский", arrivalTime: "20–25 мин", zone: "green" },
-  { id: "medeuskij", name: "Медеуский", arrivalTime: "20–30 мин", zone: "green" },
-  { id: "bostandykskij", name: "Бостандыкский", arrivalTime: "25–30 мин", zone: "green" },
-  { id: "auezovskij", name: "Ауэзовский", arrivalTime: "30–35 мин", zone: "blue" },
-  { id: "zhetysuskij", name: "Жетысуский", arrivalTime: "35–40 мин", zone: "blue" },
-  { id: "turksibskij", name: "Турксибский", arrivalTime: "35–45 мин", zone: "blue" },
-  { id: "alatauskij", name: "Алатауский", arrivalTime: "40–50 мин", zone: "yellow" },
-  { id: "nauryzbajskij", name: "Наурызбайский", arrivalTime: "45–50 мин", zone: "yellow" },
+  { id: "almalinskij", name: "Алмалинский", arrivalTime: "по заявке", zone: "green" },
+  { id: "medeuskij", name: "Медеуский", arrivalTime: "по заявке", zone: "green" },
+  { id: "bostandykskij", name: "Бостандыкский", arrivalTime: "по заявке", zone: "green" },
+  { id: "auezovskij", name: "Ауэзовский", arrivalTime: "по заявке", zone: "blue" },
+  { id: "zhetysuskij", name: "Жетысуский", arrivalTime: "по заявке", zone: "blue" },
+  { id: "turksibskij", name: "Турксибский", arrivalTime: "по заявке", zone: "blue" },
+  { id: "alatauskij", name: "Алатауский", arrivalTime: "по заявке", zone: "yellow" },
+  { id: "nauryzbajskij", name: "Наурызбайский", arrivalTime: "по заявке", zone: "yellow" },
 ];
 
 const ServiceMapPage = () => {
   return (
     <div className="min-h-screen bg-gray-50/50 flex flex-col pt-24 md:pt-32 pb-20">
       <SEO
-        title="Карта обслуживания — Районы Алматы | Время приезда электрика"
-        description="Карта обслуживания районов Алматы. Узнайте время приезда электрика в ваш район. Работаем во всех 8 районах города."
+        title="Карта обслуживания — районы Алматы | Электрик Манас"
+        description="Карта обслуживания районов Алматы. Выезд электрика по заявке в районы города."
       />
 
       {/* Hero Section */}
@@ -41,7 +41,7 @@ const ServiceMapPage = () => {
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">География выездов</h1>
           <p className="text-xl opacity-90 leading-relaxed max-w-2xl mx-auto text-red-100">
-            Работаем во всех 8 районах Алматы. Время выезда зависит от района и загруженности мастера.
+            Работаем по районам Алматы. Время выезда зависит от адреса, дорожной ситуации и текущей загрузки мастера.
           </p>
         </div>
       </section>
@@ -68,15 +68,15 @@ const ServiceMapPage = () => {
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-3">
                       <div className="w-4 h-4 rounded-full bg-emerald-500 shadow-sm" />
-                       <span className="text-sm font-bold text-gray-800">20–30 мин <span className="text-gray-400 font-medium">— центр</span></span>
+                       <span className="text-sm font-bold text-gray-800">Центр <span className="text-gray-400 font-medium">— по заявке</span></span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-4 h-4 rounded-full bg-red-500 shadow-sm" />
-                      <span className="text-sm font-bold text-gray-800">35–45 мин <span className="text-gray-400 font-medium">— спальные</span></span>
+                      <span className="text-sm font-bold text-gray-800">Спальные районы <span className="text-gray-400 font-medium">— по заявке</span></span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-4 h-4 rounded-full bg-amber-500 shadow-sm" />
-                      <span className="text-sm font-bold text-gray-800">45–50 мин <span className="text-gray-400 font-medium">— окраины</span></span>
+                      <span className="text-sm font-bold text-gray-800">Окраины <span className="text-gray-400 font-medium">— по заявке</span></span>
                     </div>
                   </div>
                 </div>
@@ -97,8 +97,8 @@ const ServiceMapPage = () => {
                       <MapPin size={24} />
                     </div>
                     <div>
-                      <h4 className="text-3xl font-extrabold mb-1">100%</h4>
-                      <p className="text-sm font-medium text-red-50">Покрытие всех районов Алматы</p>
+                      <h4 className="text-3xl font-extrabold mb-1">Алматы</h4>
+                      <p className="text-sm font-medium text-red-50">Выезд по районам города</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -106,8 +106,8 @@ const ServiceMapPage = () => {
                       <Clock size={24} />
                     </div>
                     <div>
-                      <h4 className="text-3xl font-extrabold mb-1">~30 м</h4>
-                      <p className="text-sm font-medium text-red-50">Среднее время приезда на вызов</p>
+                      <h4 className="text-3xl font-extrabold mb-1">Заявка</h4>
+                      <p className="text-sm font-medium text-red-50">Согласуем удобное время</p>
                     </div>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const ServiceMapPage = () => {
                 </div>
 
                 <div className="mt-8 pt-8 border-t border-gray-100">
-                  <p className="text-sm text-gray-500 mb-4 text-center">Бесплатный выезд мастера при заказе работы!</p>
+                  <p className="text-sm text-gray-500 mb-4 text-center">Выезд входит в стоимость заказа</p>
                   <div className="flex flex-col gap-3">
                     <a
                       href="tel:+77055535332"

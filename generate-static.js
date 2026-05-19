@@ -28,7 +28,7 @@ seoData.services.forEach(service => {
     // Generate Metadata
     const serviceTitle = service.seoTitle || service.title;
     const title = `${serviceTitle} в районе ${district.name} | Электрик Алматы`;
-    const description = `${service.title} в ${district.name} районе Алматы. Выезд мастера на дом по согласованному времени. Звоните ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+    const description = `${service.title} в ${district.name} районе Алматы. Выезд мастера по заявке, стоимость согласуется до начала работ. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
     const keywords = `${service.title.toLowerCase()}, ${service.title.toLowerCase()} алматы, ${service.title.toLowerCase()} ${district.name} район, вызов электрика, услуги электрика, электромонтажные работы`;
     const url = `${BASE_URL}/uslugi/${service.id}/${district.id}`;
 
@@ -81,13 +81,20 @@ seoData.services.forEach(service => {
 seoData.districts.forEach(district => {
   const service = seoData.services.find(s => s.id === 'vyzov-elektrika'); // Use generic service
   const title = `Электрик в ${district.name} районе Алматы | Вызов мастера`;
-  const description = `Электрик в ${district.nameGenitive} районе Алматы. Выезд на дом, цены от 3500 тг. Звоните: +7 (705) 553-53-32.`;
+  const description = `Электрик в ${district.nameGenitive} районе Алматы. Выезд мастера по заявке, цены от 3500 тг. Звоните или пишите в WhatsApp.`;
+  const keywords = `электрик ${district.name.toLowerCase()}, электрик ${district.name.toLowerCase()} алматы, вызов электрика, услуги электрика, электромонтажные работы`;
   const url = `${BASE_URL}/elektrik-${district.id}-rayon`;
   
   let html = template
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"\s*\/>/, `<meta name="description" content="${description}" />`)
-    .replace(/<link rel="canonical" href=".*?"\s*\/>/, `<link rel="canonical" href="${url}" />`);
+    .replace(/<meta name="keywords" content=".*?"\s*\/>/, `<meta name="keywords" content="${keywords}" />`)
+    .replace(/<link rel="canonical" href=".*?"\s*\/>/, `<link rel="canonical" href="${url}" />`)
+    .replace(/<meta property="og:title" content=".*?"\s*\/>/, `<meta property="og:title" content="${title}" />`)
+    .replace(/<meta property="og:description" content=".*?"\s*\/>/, `<meta property="og:description" content="${description}" />`)
+    .replace(/<meta property="og:url" content=".*?"\s*\/>/, `<meta property="og:url" content="${url}" />`)
+    .replace(/<meta name="twitter:title" content=".*?"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
+    .replace(/<meta name="twitter:description" content=".*?"\s*\/>/, `<meta name="twitter:description" content="${description}" />`);
 
   const routeDir = path.join(DIST_DIR, `elektrik-${district.id}-rayon`);
   ensureDir(routeDir);
@@ -97,14 +104,23 @@ seoData.districts.forEach(district => {
 
 // Generate Service Landing Pages: /:serviceId-almaty
 seoData.services.forEach(service => {
-  const title = `${service.title} Алматы | Цены от ${service.price} | Мастер Манас`;
-  const description = `${service.title} в Алматы. Электромонтажные работы, выезд мастера на дом и понятная цена до начала работ. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const title = `${service.seoTitle || service.title} | ${service.price} | Мастер Манас`;
+  const description = `${service.description || service.longDescription || service.title} Выезд мастера по заявке, звонок или WhatsApp. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
+  const keywords = service.id === 'ustanovka-generatora'
+    ? 'генератор, установка и подключение генератора, подключение генератора, авр, резервное питание, генератор алматы, подключение генератора к дому'
+    : `${service.title.toLowerCase()}, ${service.seoTitle ? service.seoTitle.toLowerCase() : service.title.toLowerCase()}, алматы, услуги электрика, вызов мастера, звонок whatsapp`;
   const url = `${BASE_URL}/${service.id}-almaty`;
 
   let html = template
     .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="description" content=".*?"\s*\/>/, `<meta name="description" content="${description}" />`)
-    .replace(/<link rel="canonical" href=".*?"\s*\/>/, `<link rel="canonical" href="${url}" />`);
+    .replace(/<meta name="keywords" content=".*?"\s*\/>/, `<meta name="keywords" content="${keywords}" />`)
+    .replace(/<link rel="canonical" href=".*?"\s*\/>/, `<link rel="canonical" href="${url}" />`)
+    .replace(/<meta property="og:title" content=".*?"\s*\/>/, `<meta property="og:title" content="${title}" />`)
+    .replace(/<meta property="og:description" content=".*?"\s*\/>/, `<meta property="og:description" content="${description}" />`)
+    .replace(/<meta property="og:url" content=".*?"\s*\/>/, `<meta property="og:url" content="${url}" />`)
+    .replace(/<meta name="twitter:title" content=".*?"\s*\/>/, `<meta name="twitter:title" content="${title}" />`)
+    .replace(/<meta name="twitter:description" content=".*?"\s*\/>/, `<meta name="twitter:description" content="${description}" />`);
 
   const routeDir = path.join(DIST_DIR, `${service.id}-almaty`);
   ensureDir(routeDir);

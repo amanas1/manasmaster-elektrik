@@ -75,7 +75,7 @@ const Services = () => {
             </div>
 
             <p className="text-center text-xs text-gray-400 mt-5">
-              Выезд входит в стоимость при заказе работ
+              Выезд входит в стоимость заказа
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Наши услуги</h1>
           <p className="text-xl text-red-100 max-w-3xl mx-auto">
-            Выполняем электромонтажные работы в Алматы: ремонт, установка и подключение.
+            Электромонтажные работы в Алматы: проводка, розетки, освещение, щиты и подключение техники.
           </p>
         </div>
       </section>
@@ -162,7 +162,7 @@ const Services = () => {
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Нужна срочная помощь мастера?</h2>
             <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto relative z-10">
-              Напишите нам в WhatsApp или позвоните. Мастер согласует район, задачу и удобное время выезда.
+              Напишите в WhatsApp или позвоните. Уточним задачу, район и удобное время выезда.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <a href="tel:+77055535332" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-[#DC2626] bg-white hover:bg-gray-50 shadow-lg transition-all hover:scale-105 flex-1">

@@ -39,6 +39,16 @@ const generateSitemap = () => {
   </url>\n`;
   });
 
+  // Add main service landing pages
+  seoData.services.forEach(service => {
+    xml += `  <url>
+    <loc>${BASE_URL}/${service.id}-almaty</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>\n`;
+  });
+
   // Add Static pages
   const staticPages = [
     { path: '/services', priority: '0.9', freq: 'weekly' },
