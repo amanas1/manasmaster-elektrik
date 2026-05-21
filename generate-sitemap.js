@@ -72,7 +72,8 @@ const generateSitemap = () => {
   const blogPosts = [
     'safety', 'lighting', 'wiring', 'shield',
     'appliances', 'smarthome', 'floorheating',
-    'ups', 'automation', 'landscape', 'emergency', 'ev'
+    'ups', 'automation', 'landscape', 'emergency', 'ev',
+    'plumbing-leaks', 'plumbing-water'
   ];
   blogPosts.forEach(slug => {
     xml += `  <url>

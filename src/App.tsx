@@ -17,6 +17,8 @@ import BlogPostAutomation from "./pages/BlogPostAutomation";
 import BlogPostLandscape from "./pages/BlogPostLandscape";
 import BlogPostEmergency from "./pages/BlogPostEmergency";
 import BlogPostEv from "./pages/BlogPostEv";
+import BlogPostPlumbingLeaks from "./pages/BlogPostPlumbingLeaks";
+import BlogPostPlumbingWater from "./pages/BlogPostPlumbingWater";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Portfolio from "./pages/Portfolio";
 import Reviews from "./pages/Reviews";
@@ -60,6 +62,8 @@ function App() {
           <Route path="/blog/landscape" element={<BlogPostLandscape />} />
           <Route path="/blog/emergency" element={<BlogPostEmergency />} />
           <Route path="/blog/ev" element={<BlogPostEv />} />
+          <Route path="/blog/plumbing-leaks" element={<BlogPostPlumbingLeaks />} />
+          <Route path="/blog/plumbing-water" element={<BlogPostPlumbingWater />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/reviews" element={<Reviews />} />
