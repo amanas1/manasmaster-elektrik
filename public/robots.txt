@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
-Disallow: /privacy-policy
 Sitemap: https://manasmaster.kz/sitemap.xml

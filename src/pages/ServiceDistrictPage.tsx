@@ -1,20 +1,20 @@
 import { useParams, Link } from "react-router-dom";
 import seoData from "../data/seo-data.json";
 import SEO from "../components/SEO";
-import { Phone, Clock, Shield, MapPin, CheckCircle, ArrowRight } from "lucide-react";
+import { Phone, Clock, Shield, MapPin, CheckCircle, HelpCircle } from "lucide-react";
+
+const BASE_URL = "https://manasmaster.kz";
 
 const ServiceDistrictPage = () => {
   const { serviceId, districtId } = useParams();
 
-  // Handle single-param SEO URLs where service or district might be implied
   const effectiveServiceId = serviceId || "vyzov-elektrika";
   const service = seoData.services.find((s) => s.id === effectiveServiceId);
-  
-  // If districtId is missing, it's an "Almaty overall" page
+
   const district = seoData.districts.find((d) => d.id === districtId) || {
     id: "almaty",
     name: "Алматы",
-    nameGenitive: "Алматы"
+    nameGenitive: "Алматы",
   };
 
   if (!service) {
@@ -26,72 +26,162 @@ const ServiceDistrictPage = () => {
     );
   }
 
-  const locationText = district.id === "almaty" ? "Алматы" : `${district.nameGenitive} Алматы`;
   const isAlmatyPage = district.id === "almaty";
-  const title = isAlmatyPage
-    ? `${service.seoTitle || `${service.title} в ${locationText}`} | Мастер Манас`
-    : `${service.title} в ${locationText} | Мастер Манас`;
-  const description = isAlmatyPage
-    ? `${service.description || service.longDescription || service.title}. Выезд мастера по Алматы, звонок или WhatsApp. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`
-    : `${service.title} в ${locationText} — ${service.price}. Выезд мастера по району, звонок или WhatsApp. ☎ +7 (705) 553-53-32, +7 (707) 479-10-20`;
-  const keywords = isAlmatyPage
-    ? service.id === "ustanovka-generatora"
-      ? `генератор, установка и подключение генератора, подключение генератора, АВР, резервное питание, генератор Алматы, подключение генератора к дому, выезд мастера, звонок WhatsApp`
-      : `${service.title}, ${service.seoTitle || service.title}, ${locationText}, выезд мастера, звонок, WhatsApp, услуги электрика`
-    : `${service.title}, ${locationText}, выезд мастера, звонок, WhatsApp`;
-  const canonical = isAlmatyPage
-    ? `https://manasmaster.kz/${serviceId}-almaty`
-    : `https://manasmaster.kz/uslugi/${serviceId}/${district.id}`;
-  const benefits = service.id === "ustanovka-generatora" && isAlmatyPage
-    ? [
-        "Подключение генератора к дому и проверка линии",
-        "Монтаж АВР или ручного переключателя",
-        "Проверка фаз, защиты и резервного питания",
-        "Выезд мастера по Алматы по заявке",
-        "Согласование по телефону или WhatsApp",
-        "Чистая и аккуратная работа без лишнего шума",
-      ]
-    : [
-        `Выезд мастера в ${district.name} по заявке`,
-        "Гарантия зависит от вида работы и материалов",
-        "Честные цены без накруток и скрытых платежей",
-        "Стоимость согласуется до начала работ",
-        "Выезд входит в стоимость заказа",
-        "Чистота после работы — убираем за собой",
-      ];
+  const locationText = isAlmatyPage ? "Алматы" : `${district.nameGenitive} Алматы`;
+  const districtShort = isAlmatyPage ? "Алматы" : district.name;
 
-  // Get other services for cross-linking
+  // ── Title (CTR-оптимизированный) ──────────────────────────────────────────
+  const title = isAlmatyPage
+    ? `${service.title} в Алматы — выезд за 30 мин, 24/7 | Мастер Манас`
+    : `${service.title} в ${locationText} — ${service.price}, 24/7 | Мастер Манас`;
+
+  // ── Description ───────────────────────────────────────────────────────────
+  const description = isAlmatyPage
+    ? `${service.title} в Алматы — ${service.price}. Выезд мастера за 30 минут, работаем 24/7. Гарантия качества. Звоните: +7 (705) 553-53-32.`
+    : `${service.title} в ${locationText} — ${service.price}. Мастер-электрик приедет за 30 минут. Работаем круглосуточно. Гарантия на работы. ☎ +7 (705) 553-53-32.`;
+
+  const keywords = isAlmatyPage
+    ? `${service.title.toLowerCase()}, ${service.title.toLowerCase()} Алматы, ${service.seoTitle || ""}, электрик Алматы, выезд мастера`
+    : `${service.title.toLowerCase()} ${district.name.toLowerCase()}, электрик ${district.name.toLowerCase()}, ${service.title.toLowerCase()} Алматы`;
+
+  const canonical = isAlmatyPage
+    ? `${BASE_URL}/${serviceId}-almaty`
+    : `${BASE_URL}/uslugi/${serviceId}/${district.id}`;
+
+  // ── Benefits ──────────────────────────────────────────────────────────────
+  const benefits = [
+    `Выезд мастера в ${districtShort} за 30–45 минут`,
+    "Работаем 24/7, включая выходные и праздники",
+    "Честные цены — стоимость согласуется до начала работ",
+    "Гарантия на все виды работ",
+    "Чистота после работы — убираем за собой",
+    "Только сертифицированные материалы и инструмент",
+  ];
+
+  // ── FAQ (для FAQPage разметки) ─────────────────────────────────────────────
+  const faqItems = [
+    {
+      q: `Сколько стоит «${service.title}» в ${districtShort}?`,
+      a: `Стоимость услуги «${service.title}» в ${districtShort} — ${service.price}. Точная цена рассчитывается на месте после осмотра, согласуется до начала работ. Никаких скрытых доплат.`,
+    },
+    {
+      q: `Как быстро приедет электрик в ${districtShort}?`,
+      a: `Мастер приедет в ${districtShort} в течение 30–45 минут после звонка. Работаем круглосуточно, 7 дней в неделю, без выходных.`,
+    },
+    {
+      q: "Есть ли гарантия на выполненные работы?",
+      a: "Да, на все выполненные работы предоставляется гарантия. Срок гарантии зависит от вида работы и используемых материалов. Все условия фиксируются до начала работ.",
+    },
+    {
+      q: "Нужно ли покупать материалы заранее?",
+      a: "Нет, мастер приедет со своим инструментом и расходными материалами. Если нужны специфические комплектующие — заранее уточним по телефону.",
+    },
+    {
+      q: "Как оформить заявку на вызов электрика?",
+      a: `Позвоните по номеру +7 (705) 553-53-32 или +7 (707) 479-10-20, либо напишите в WhatsApp. Мастер-электрик выедет в ${districtShort} в течение 30–45 минут.`,
+    },
+  ];
+
+  // ── Schema.org JSON-LD ────────────────────────────────────────────────────
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Главная", "item": BASE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Услуги", "item": `${BASE_URL}/services` },
+      { "@type": "ListItem", "position": 3, "name": service.title, "item": `${BASE_URL}/${serviceId}-almaty` },
+      ...(isAlmatyPage ? [] : [{ "@type": "ListItem", "position": 4, "name": district.name, "item": canonical }]),
+    ],
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${service.title} в ${districtShort}`,
+    "description": service.longDescription || service.description,
+    "url": canonical,
+    "image": `${BASE_URL}${service.image}`,
+    "provider": {
+      "@type": "Electrician",
+      "name": "Мастер Манас",
+      "url": BASE_URL,
+      "telephone": ["+77055535332", "+77074791020"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "мкр. Аксай 4-11",
+        "addressLocality": "Алматы",
+        "addressCountry": "KZ",
+      },
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Алматы",
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": service.price.replace(/[^0-9]/g, ""),
+      "priceCurrency": "KZT",
+      "availability": "https://schema.org/InStock",
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a },
+    })),
+  };
+
   const otherServices = seoData.services.filter((s) => s.id !== serviceId).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO title={title} description={description} keywords={keywords} canonical={canonical} />
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        canonical={canonical}
+        ogImage={`${BASE_URL}${service.image}`}
+      />
 
-      {/* Hero Banner with Image */}
+      {/* JSON-LD Schemas */}
+      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+
+      {/* Hero Banner */}
       <div className="relative min-h-[350px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${service.image}')` }}
-          title={service.title}
+          aria-hidden="true"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-[#DC2626]/95 to-[#E11D48]/85" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-16">
-          <nav className="mb-6 text-sm text-white/80 flex items-center gap-2 flex-wrap">
+          {/* Breadcrumb (визуальный) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/80 flex items-center gap-2 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Главная</Link>
-            <span>/</span>
-            <span>Услуги</span>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
+            <Link to="/services" className="hover:text-white transition-colors">Услуги</Link>
+            <span aria-hidden="true">/</span>
             <span>{service.title}</span>
-            <span>/</span>
-            <span>{district.name}</span>
+            {!isAlmatyPage && (
+              <>
+                <span aria-hidden="true">/</span>
+                <span>{district.name}</span>
+              </>
+            )}
           </nav>
 
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
             {service.title} в {locationText}
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mb-6">
-            {service.description}
+            {service.price} · Выезд за 30 мин · 24/7
           </p>
           <div className="flex flex-wrap gap-4">
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
@@ -101,7 +191,7 @@ const ServiceDistrictPage = () => {
               <Shield size={16} /> Гарантия на работу
             </div>
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
-              <MapPin size={16} /> {district.name}
+              <MapPin size={16} /> {districtShort}
             </div>
           </div>
         </div>
@@ -110,15 +200,17 @@ const ServiceDistrictPage = () => {
       {/* Main Content */}
       <div className="max-w-5xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Left Column — Description */}
+
+          {/* Left Column */}
           <div className="lg:col-span-2 space-y-8">
+
+            {/* Описание услуги */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
               <h2 className="text-2xl font-bold mb-4">О услуге</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 {service.longDescription || service.description}
               </p>
-
-              <h3 className="text-xl font-bold mb-4">Наши преимущества в {district.nameGenitive}:</h3>
+              <h3 className="text-xl font-bold mb-4">Наши преимущества в {locationText}:</h3>
               <ul className="space-y-3">
                 {benefits.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -129,7 +221,7 @@ const ServiceDistrictPage = () => {
               </ul>
             </div>
 
-            {/* Service Image */}
+            {/* Фото услуги */}
             <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
               <img
                 src={service.image}
@@ -137,12 +229,30 @@ const ServiceDistrictPage = () => {
                 title={service.title}
                 className="w-full h-64 object-cover"
                 loading="lazy"
+                width="800"
+                height="256"
               />
             </div>
 
-            {/* Other Services */}
+            {/* FAQ */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
-              <h2 className="text-2xl font-bold mb-6">Другие услуги в {district.nameGenitive}</h2>
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                <HelpCircle size={24} className="text-[#DC2626]" />
+                Часто задаваемые вопросы
+              </h2>
+              <div className="space-y-5">
+                {faqItems.map((item, i) => (
+                  <div key={i} className="border-b border-gray-100 pb-5 last:border-0 last:pb-0">
+                    <h3 className="font-bold text-gray-900 mb-2">{item.q}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Другие услуги */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+              <h2 className="text-2xl font-bold mb-6">Другие услуги в {locationText}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {otherServices.map((s) => (
                   <Link
@@ -156,6 +266,8 @@ const ServiceDistrictPage = () => {
                       title={s.title}
                       className="w-16 h-16 rounded-lg object-cover shrink-0"
                       loading="lazy"
+                      width="64"
+                      height="64"
                     />
                     <div>
                       <p className="font-bold text-sm">{s.title}</p>
@@ -166,7 +278,7 @@ const ServiceDistrictPage = () => {
               </div>
             </div>
 
-            {/* Other Districts */}
+            {/* Другие районы */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
               <h2 className="text-2xl font-bold mb-6">{service.title} в других районах</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -175,8 +287,8 @@ const ServiceDistrictPage = () => {
                   .map((d) => (
                     <Link
                       key={d.id}
-                    to={`/uslugi/${effectiveServiceId}/${d.id}`}
-                    className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl hover:bg-[#DC2626] hover:text-white text-sm font-medium transition-all"
+                      to={`/uslugi/${effectiveServiceId}/${d.id}`}
+                      className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl hover:bg-[#DC2626] hover:text-white text-sm font-medium transition-all"
                     >
                       <MapPin size={16} className="shrink-0" />
                       {d.name}
@@ -188,13 +300,11 @@ const ServiceDistrictPage = () => {
 
           {/* Right Column — Sidebar */}
           <div className="space-y-6">
-            {/* Price Card */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 sticky top-24">
               <h3 className="text-lg font-bold mb-2 text-center">Стоимость услуги</h3>
               <div className="text-center mb-6">
                 <span className="text-4xl font-extrabold text-[#DC2626]">{service.price}</span>
               </div>
-
               <div className="space-y-4 mb-6">
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Clock size={18} className="text-[#DC2626] shrink-0" />
@@ -206,10 +316,9 @@ const ServiceDistrictPage = () => {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <MapPin size={18} className="text-amber-500 shrink-0" />
-                  <span>Выезд по {district.nameGenitive}</span>
+                  <span>Выезд по {locationText}</span>
                 </div>
               </div>
-
               <div className="flex flex-col gap-3 mb-4">
                 <a
                   href="tel:+77055535332"
@@ -226,7 +335,6 @@ const ServiceDistrictPage = () => {
                   +7 707 479 10 20
                 </a>
               </div>
-              
               <a
                 href="https://wa.me/77055535332"
                 target="_blank"
@@ -235,10 +343,10 @@ const ServiceDistrictPage = () => {
               >
                 💬 WhatsApp
               </a>
-
-              <p className="text-xs text-gray-400 text-center mt-3">Звонок или WhatsApp</p>
+              <p className="text-xs text-gray-400 text-center mt-3">Звонок или WhatsApp · 24/7</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>

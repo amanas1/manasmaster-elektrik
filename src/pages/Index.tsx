@@ -36,13 +36,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO
-        title="Электрик Алматы | Услуги электрика и электромонтажные работы"
-        description="Услуги электрика в Алматы. Вызов мастера на дом, ремонт проводки, установка люстр, розеток и сборка электрощита. Звонок или WhatsApp."
-        keywords="Электрик Алматы, электрик, электромонтажные работы, вызвать электрика, услуги электрика в Алматы, ремонт проводки, установка люстр, монтаж розеток, электрик на дом"
+        title="Электрик Алматы | Вызов мастера за 30 мин, 24/7 — Мастер Манас"
+        description="Электрик в Алматы — выезд за 30 минут, 24/7. Ремонт проводки, установка люстр, сборка электрощита, розетки. от 3 500 ₸. ☎ +7 (705) 553-53-32."
+        keywords="электрик Алматы, вызвать электрика, электромонтажные работы Алматы, ремонт проводки, установка люстр, сборка щита, электрик на дом Алматы"
         canonical="https://manasmaster.kz/"
+        ogImage="https://manasmaster.kz/images/hero_electrician.png"
       />
 
-      {/* Schema.org for Electrician */}
+      {/* Schema.org — LocalBusiness / Electrician */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -55,7 +56,9 @@ const Index = () => {
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "мкр. Аксай 4-11",
-            "addressLocality": "Almaty",
+            "addressLocality": "Алматы",
+            "addressRegion": "Алматы",
+            "postalCode": "050000",
             "addressCountry": "KZ"
           },
           "geo": {
@@ -63,9 +66,26 @@ const Index = () => {
             "latitude": 43.238949,
             "longitude": 76.889709
           },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Алматы" },
+            { "@type": "AdministrativeArea", "name": "Алатауский район" },
+            { "@type": "AdministrativeArea", "name": "Алмалинский район" },
+            { "@type": "AdministrativeArea", "name": "Ауэзовский район" },
+            { "@type": "AdministrativeArea", "name": "Бостандыкский район" },
+            { "@type": "AdministrativeArea", "name": "Жетысуский район" },
+            { "@type": "AdministrativeArea", "name": "Медеуский район" },
+            { "@type": "AdministrativeArea", "name": "Наурызбайский район" },
+            { "@type": "AdministrativeArea", "name": "Турксибский район" }
+          ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Услуги электрика",
+            "name": "Услуги электрика в Алматы",
             "itemListElement": seoData.services.map(s => ({
               "@type": "Offer",
               "itemOffered": {
@@ -85,7 +105,8 @@ const Index = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/images/hero_electrician.png')", transform: "scaleX(-1)" }}
-          title="Мастер Манас выполняет электромонтажные работы"
+          role="img"
+          aria-label="Мастер-электрик Манас выполняет электромонтажные работы в Алматы"
         >
           <div className="absolute inset-0 bg-gray-900/40" />
         </div>
@@ -508,6 +529,22 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQPage JSON-LD */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Сколько стоит вызов электрика в Алматы?", "acceptedAnswer": { "@type": "Answer", "text": "Стоимость вызова электрика начинается от 3 500 ₸. Выезд и диагностика — бесплатно при заказе работ. Точная цена озвучивается до начала работ после осмотра." } },
+            { "@type": "Question", "name": "Как быстро приедет мастер?", "acceptedAnswer": { "@type": "Answer", "text": "Мастер приедет в любой район Алматы в течение 30–40 минут после звонка. Работаем круглосуточно, 7 дней в неделю, без выходных и праздников." } },
+            { "@type": "Question", "name": "Даёте ли гарантию на электромонтажные работы?", "acceptedAnswer": { "@type": "Answer", "text": "Да, предоставляем официальную письменную гарантию на все виды выполненных электромонтажных работ. Срок согласуется индивидуально в зависимости от вида работ." } },
+            { "@type": "Question", "name": "Какие районы Алматы вы обслуживаете?", "acceptedAnswer": { "@type": "Answer", "text": "Обслуживаем все 8 районов: Алатауский, Алмалинский, Ауэзовский, Бостандыкский, Жетысуский, Медеуский, Наурызбайский и Турксибский." } },
+            { "@type": "Question", "name": "Можно ли вызвать электрика ночью?", "acceptedAnswer": { "@type": "Answer", "text": "Да! Работаем 24/7, включая ночные часы и праздники. Аварийный выезд — в течение 30 минут." } },
+            { "@type": "Question", "name": "Нужно ли убирать после работы самому?", "acceptedAnswer": { "@type": "Answer", "text": "Нет. После завершения всех работ мастер самостоятельно убирает строительный мусор и пыль. Мы оставляем квартиру в чистоте." } }
+          ]
+        })}
+      </script>
+
       {/* Map Section */}
       <section className="h-[400px] w-full relative">
         <iframe 
@@ -518,6 +555,7 @@ const Index = () => {
           allowFullScreen={true}
           className="absolute inset-0 grayscale contrast-125 opacity-90 sepia-[.2]"
           title="Карта обслуживания электрика в Алматы"
+          loading="lazy"
         ></iframe>
       </section>
       
